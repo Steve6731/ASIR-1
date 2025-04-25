@@ -1,0 +1,81 @@
+Set serveroutput ON
+
+create or replace procedure [nombre](
+   [p_nome] [in|out|in out] [p_type], 
+   [p_nome] [in|out|in out] [p_type]
+) as|is
+   [v_nome] [ev_type]|([tablename.Valuename]%type) [:=] [value];
+BEGIN
+ ---
+ ---
+ ---
+ dbms_output.PUT_LINE(v_nome);
+end;
+/
+execute [procedure];
+
+create or replace funcion [nombre](
+   [p_nome] [p_type], 
+   [p_nome] [p_type]
+) return [type] is
+   [v_nome] [ev_type] [:=] [value];
+   [v_nome] [ev_type] [:=] [value];
+Begin
+   ---
+   return [valor]
+END;
+
+
+DECLARE
+   [v_name] [v_type] [:=] [value];
+BEGIN
+   LOOP
+      if [condicion] then
+         dbms_output.PUT_LINE();
+      else
+         dbms_output.PUT_LINE();
+      end if;
+      exit when [condicion];
+   end loop;
+
+   for i in [nº]..[nº] loop
+      [cont] := [cont] + 1; | [cont] ++;
+      [band] := false|true;
+   end loop;
+
+   while [condicion] loop
+      --
+   end loop;
+END;
+
+DECLARE
+   cursor c_alumno is select nombre from alumno;
+   v_alumno c_alumno%rowtype;
+BEGIN
+   open c_alumno;
+   LOOP
+      fetch c_alumno into v_alumno;
+      exit when c_alumno%notfound;
+      dbms_output.put_line(v_alumno.nombre);
+   end loop;
+   close c_alumno;
+end;
+
+create or replace procedure mediaC is
+   cursor c_tipo[(P1 number)] is select tipo from producto [where cf = P1];
+   media number;
+BEGIN
+   for v in c_tipo(3) loop
+      Select avg(prventa) into media from producto where tipo = V.tipo;
+      dbms_output.put_line('La media del precio de venta de productos de tipo '||v.tipo||' es '||media);
+   end loop;
+end;
+
+CASE operacion
+   when '*' then solucion := numero1*numero2;
+   when '/' then solucion := numero1/numero2;
+   when '+' then solucion := numero1+numero2;
+   when '-' then solucion := numero1-numero2;
+   else dbms_output.PUT_LINE('Error operacion no valirable');
+         Bandera := False;
+END CASE;
