@@ -1,0 +1,13 @@
+drop table ADMINISTRADOR cascade constraints;
+drop table AUTOR cascade constraints;
+drop table AUTOR_LIBRO cascade constraints;
+drop table COLEGIO cascade constraints;
+drop table DIRECCTOR cascade constraints;
+drop table LIBRO cascade constraints;
+drop table LIBRO_EXEMPLARES cascade constraints;
+drop table LISTA_LIB_PRESTAMOS cascade constraints;
+drop table PERSONAL cascade constraints;
+drop table PRESTAMOS cascade constraints;
+drop table SOCIO cascade constraints;
+drop table TIPO_LIBRO cascade constraints;
+drop table TRABAJADOR cascade constraints;
