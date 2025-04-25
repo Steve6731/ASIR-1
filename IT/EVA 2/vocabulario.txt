@@ -1,0 +1,57 @@
+high-level programming
+languages
+source code
+comprehend
+binary code
+regarding
+mistakes
+right away
+platform
+tamper with
+misuse
+downside
+at once
+statement
+your skill sharp
+intergreted development encironment (IDE)
+debugger
+back end
+front end
+cast
+
+althought
+however
+source 
+Instead
+However
+
+Privacy: no one can eavesdrop on our messages
+integrity: the message is not manipulated on the way to its destination
+indentification: the site that we are visiting is indeed the one you think it is.
+
+browser
+server
+encryption
+encrypt
+decrypt
+symmetric key algorithm
+asymmetric key
+private | public key | master key
+certificate
+handshake: 
+   browser send SSL/TLS list to server
+   server choose the best SSL/TLS
+   server send its certificate and public key
+   browser generate a "pre-master key"
+   encrypt and send "pre-master key" with browser's public key
+   server user private key to decrypt the pre-master key.
+   than use that master key to comminicate
+
+• Scope
+• Nested Loops
+• iteration
+• IDE
+• Snippet
+• Library
+• Compiler
+• Interpreter

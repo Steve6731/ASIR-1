@@ -1,0 +1,16 @@
+The disks NVMe are the chipest disks.
+The storage capacity of magnetic diks is more than SSD's.
+The magnetic disks are slower than NVMe.
+
+1st picture is a NVMe
+2nd picture is a hard disk
+3ed picture is a SDD's
+
+a) cheaper
+b) faster
+c) most advanced
+d) more reliable
+e) more expensive
+f) largest
+g) more efficient
+h) quieter
