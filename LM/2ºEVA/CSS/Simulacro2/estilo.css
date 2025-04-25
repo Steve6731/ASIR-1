@@ -1,0 +1,22 @@
+* {margin: 0px;padding: 0px;max-width: 986px;}
+body {background-color: #baf4ea;}
+div {display: flex;}
+div header{background-image: url('imagenes/header.jpg');width: 986px;height: 222px;border: red 3px solid;}
+div header p {position: relative;left: 53%;top: 80%;
+               color: #FFFFFF;font-weight: 800;font-size: 2em;}
+.main {display: flex;justify-content: space-between;height: 550px;border: red 3px solid;position: relative;bottom: 2px;}
+nav {background-color: orange;width: 186px;}
+nav div {background-color: #FFFFFF;border-radius: 10px;align-content: center;margin: 30px 1px 15px;}
+nav div p {margin:8px auto;font-weight: 600;color: #794f18;}
+nav p {font-family: verdana;margin: 5px;color: #302478;font-weight: 600;}
+section {background-color: antiquewhite; margin: 5px;width: 800px;}
+section p {text-indent: 50px;}
+h1 {text-align: center;color: #431c7d;margin: 10px auto;}
+table {display: flex;margin: 10px;}
+td {max-width: 250px;border: green 1px solid;text-align: center;}
+img {max-width: 240px;border-radius: 40px;}
+
+footer {background-image: url('imagenes/mar2.jpg');text-align: center;border: red 3px solid;position: relative;bottom: 4px;color: #FFFFFF;font-family: verdana;font-weight: 600;}
+
+
+

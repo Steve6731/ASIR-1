@@ -1,0 +1,33 @@
+
+Realidad Aumentada
+-----------------------------------
+
+
+Inicio
+
+�Qu� es la RA?
+
+Un poco de historia
+
+Realidad Virtual vs RA
+
+Niveles de RA
+
+-----------------------------------
+
+Realidad Aumentada: el futuro ya está aquí
+
+La Realidad Aumentada es una tecnología emergente que permite disfrutar de experiencias en las que se a�ade contenido digital a nuestro mundo real, aumentando la percepci�n que tenemos del mismo.
+
+Mediante esta tecnología, se puede incorporar contenido en forma de texto, imagen, audio, v�deo, modelos 3D e incluso información olfativa y t�ctil en la percepci�n del mundo real del usuario. Estos �aumentos� de la realidad pueden ayudar a mejorar el conocimiento del individuo y permitirle un mayor grado de comprensi�n lo que sucede a su alrededor.
+
+Ronald Azuma, investigador del Nokia Research Center Hollywood, de California, ofreci� una definici�n. Un sistema de Realidad Aumentada es aquel que cumple las siguientes caracter�sticas:
+
+    Combina elementos reales y virtuales
+    Es interactiva en tiempo real
+    Se registra en 3D
+
+---------------------------------------
+
+
+ 

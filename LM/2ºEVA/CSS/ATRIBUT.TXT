@@ -1,0 +1,121 @@
+*: ~| initial | inherit
+
+[color]: name | #ffffff | rgb(r,g,b[,alpha]) | hsl(hue,saturation,lightness[,alpha])
+[length]: px | pt | cm | em | vw | vh
+[width]: thin | medium | thick | [length]
+[direction]: top | right | bottom | left
+[align]: left | right | center | justify
+[style]: dotted | dashed | solid | double | none | hidden
+[3dstyle]: groove | ridege | inset | outset | dotted | dashed | solid | double | none | hidden;
+
+--background
+background-color: [color] | transparent;
+background-image: url("   ") | none;
+background-position: (right|left|center top|bottom|center) | [length];
+background-size: auto | length | cover | contain;
+background-origin: padding-box | border-box | content-box;
+background-clip: border-box | padding-box | content-box ;
+background-repeat: repeat-x | repeat-y | no-repeat | space | round;
+background-attachment: scroll | fixed | local;
+$background: [color] [image] [position]/[size] [origin] [clip] [repeat] [attachment];
+Note: If using multiple background-image sources but also want a background-color, the background-color parameter needs to be last in the list.
+
+--border
+border-width: [length] [length] [length] [length];
+border[-direction-]style: [3dstyle] [3dstyle] [3dstyle] [3dstyle];
+border-color: [color] | transparent;
+$border: [width] [style] [color];
+
+--Box Model: margin > outline > offset > border > padding > content
+
+margin[-direction]: [length] [length] [length] [length];
+padding[-direction]: [length] [length] [length] [length];
+
+outline-style: [3dstyle];
+outline-color: [color];
+outline-width: [width];
+outline-offset: [width];
+$outline: [width] [style] [color];
+
+height: auto | [length] | %;
+width: auto | [length] | %;
+max-height: [length] | %;
+max-width: [length] | %;
+
+--text
+color: [color];
+
+text-align[-last]: [align];
+vertical-align: baseline | text-top | text-bottom | sub | super | [length];
+direction: ltr | rtl; #mean left-to-right or right-to-left
+unicode-bidi: normal|embed|bidi-oberride|isolate[-override]|plaintext
+
+text-decoration-line: none | underline | overline | line-through;
+text-decoration-color: [color];
+text-decoration-style: [style] | wavy;
+text-decoration-thickness: auto | from-font | [length] | %;
+$text-decoration: [line] [color] [style] [thickness];
+$text-shadow: h-shadow v-shadow [blur-radius] [color];
+
+text-transform: none|capitalize|uppercase|lowercase;
+
+text-indent: length | [length] | %;
+letter-spacing: normal | [length];
+word-spacing: normal | [length];
+line-height: normal | number | [length]|%;
+white-space: normal|nowrap|pre|pre-line|pre-wrap;
+
+font-family: family-name | generic-family;
+font-size:[length] | (medium|xx-small|x-small|small|large|x-large|xx-large|smaller|larger);
+font-style: normal|italic|oblique;
+font-variant: normal|small-caps;
+font-weight: (normal|bold|bolder|lighter) | number;
+$font: [style] [variant] [weight] [size]/[line-height] [family]|(caption|icon|menu|message-box|small-caption|status-bar);
+
+--display
+display: none | inline | [inline-]block | [inline-]flex | [inline-]grid | inline-table | contents | list-item | table[-caption|-column|-header-group|-footer-group|-row[-group]|-column[-group]|-cell|-row];
+visibility: visible|hidden|collapse; #The element will be hidden, but still affect the layout
+clip: auto|rect (top, right, bottom, left);
+
+-overflow
+overflow: visible|hidden|clip|scroll|auto;
+overflow-anchor: auto|none;
+overflow-x: visible|hidden|scroll|auto;
+overflow-y: visible|hidden|scroll|auto;
+overflow-wrap: normal|anywhere|break-word;
+box-sizing: content-box|border-box;
+
+position: static|absolute|fixed|relative|sticky;
+top: auto|length;
+right: auto|length;
+left: auto|length;
+bottom: auto|length;
+float: none|left|right
+clear: none|left|right|both
+z-index: number;
+
+--link
+a[:link|visited|hover|active] {}
+
+--list
+list-style-type: value;
+list-style-position: inside | outside;
+list-style-image: none|url();
+$list-style: [type] [position] [image];
+
+--table
+$border: [width] [style] [color]; #had before
+border-collapse: separate|collapse;
+border-spacing: [length];
+caption-side: top|bottom;
+empty-cells: show|hide;
+table-layout: auto|fixed;
+
+selecter:
+:nth-child(even) #parnumber
+
+--combinartors:
+(space)
+(>):next 
+(+):next one
+(~):next all

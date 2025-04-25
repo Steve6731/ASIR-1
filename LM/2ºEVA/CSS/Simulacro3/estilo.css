@@ -1,0 +1,10 @@
+* {font-family:kalam;color:rgb(84,44,78);max-width:80vw;}
+body {background-color: rgb(122,156,123);}
+section {;background-color: #FFF;max-width 50vw}
+nav {background-color: #FFF;float:left}
+aside {background-color: #ffbcee;float:right}
+
+table {border: rgb(211,175,219) 3px dashed;}
+img {height: 250px}
+
+/*borde: rgb(63,86,22) letra: fondo aside:rgb(211,175,219)*/

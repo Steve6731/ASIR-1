@@ -1,0 +1,26 @@
+* {margin: 5px auto;font-family: Verdana;}
+header {background-color: #1645A3;height: 80px;position: relative;top: -10px;margin-bottom: -10px;}
+header p {background-color: #A0BAEE;font-weight: 600;max-width: 50%;
+         font-family: Verdana;text-align: center;font-size: 2.5em;
+         position: relative;top: 10px;border-radius: 5px;padding-bottom: 10px;}
+body {justify-content: center;background:#A0BAEE;
+.main {display: flex;}
+.nav {position:fixed;background-color: #1645A3;border-radius: 10px;top: 30vh;align-items: center;font-size: 1.2em;font-weight: 600;}
+.nav p {text-align: center;background-color: #A0BAEE;margin: 5px;border-radius: 5px;font-weight: 600;}
+.nav a {color: #000;font-weight: 600;text-decoration: none;}
+ul {padding-left: 0;margin: 5px 5px;list-style: none;}
+.nav ul li {background-color: #F47309;text-align: center;border-radius: 5px;padding-bottom: 10px;}
+.nav ul li ul li {background-color: #F4C809;text-align: center;border-radius: 5px;}
+section {max-width: 62vw;}
+h1 {text-align: center;font-size: 2em;}
+h3 {font-size: 1.2em;}
+.noticia {background-color: #1645A3;border-radius: 10px;display: flex;padding-right: 100px;}
+.notica div {margin: 5px;}
+.noticia div p {background-color: #FFF;margin: 10px;border-radius: 10px;height: 95%;text-align: justify;font-size: 1.3em;max-width: 90%;padding: 0px 10px;}
+.noticia div img {background-color: #FFF;margin: 10px;border-radius: 10px;height: 95%;}
+h1 {background-color: #F47309;padding: 5px;}
+h3 {background-color: #F4C809;padding: 5px 50px;text-indent: -25px;}
+footer {background-color: #1645A3;height: 30px;margin: 0px;padding: 0px;position: relative;top: 20px;}
+footer p {background-color: #A0BAEE;font-weight: 600;
+   text-align: center;float: right;border-radius: 5px;margin: 0px;padding: 0px;
+   position: relative;top: 5px;}

@@ -1,0 +1,26 @@
+* {margin:0px;font-family: Verdana;max-width: 1000px;margin:0 auto;}
+body {background:#37474F;}
+
+header,footer{border: 5px solid #FF5722}
+header {background: url(Imagenes/header.png);height: 120px;}
+header div {position: relative;left: 850px;top:92px;
+            color: #FF5722;font-size: 1.5em;}
+section,aside {float:left;background:#FFCC80;height: 480px;}
+
+section {width: 745px;border-left: 5px solid #FF5722;}
+section p {font-size: 0.7em;text-indent: 25px;text-align: justify;margin:0px 10px 10px;}
+h1 {text-align: center;font-size: 1.0em;text-transform: uppercase;margin: 15px auto;font-weight: 900;}
+img {float:right;margin:0px 10px 10px;width: 40%;}
+h3 {border: #37474F dotted 4px;margin: 10px auto;width: 70%;font-size: 1.7em;
+   text-align: center;color: #FF5722;}
+ul {list-style-type:square;list-style-position: inside;margin-top: 20px;}
+li {text-align: center;}
+li a {text-decoration: none;color:#FFF;font-size: 1.3em;}
+
+aside {width:240px;border-right:5px solid #FF5722;border-left:5px dashed #37474F}
+aside p {background:#C5E1A5;margin: 13px;border-radius: 25px;padding: 10px 5px;text-align: right;font-size: 0.97em;}
+aside div {background: #000;color: #FFF;word-spacing: 20px; margin: 5px;text-indent: 2.5px;}
+aside div + p {text-align: left;}
+
+footer {clear: both;background: #B0BEC5;text-align: center;padding-bottom: 20px;color: #FFF;font-weight: 600;}
+footer span {letter-spacing: 15px;color: #C5E1A5;}
