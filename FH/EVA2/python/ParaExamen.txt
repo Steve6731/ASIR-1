@@ -1,0 +1,36 @@
+-Interpretado
+-Variables  
+-conversion
+   -int(var)
+   -str(var)
+-E/S
+   input()
+   print()
+-Operadores
+   -matemáticos
+      +-*/=
+      % modulo
+      ** potencia
+   -relacion
+      == >= <= > < !=
+   -logico
+      and or
+-condición
+   if (condición):
+      funcion
+   elif:
+      funcion
+   else:
+      funcion
+-bucle
+   -for i in range(star,end,step):
+      funcion
+
+   -while (condición):
+      funcion
+      change condicion
+
+(cast 意为:类型转换)
+(nested ifs 意为:嵌套 if)
+(nested Loops意为:嵌套 loop)
+(scope 意为:范围)

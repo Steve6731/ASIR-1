@@ -1,0 +1,109 @@
+Sobre mesa = desktop
+
+Placa nai
+
+	Marcas
+		ASUS,MSI,Gigabyte
+		Asrock,Aourus,Acer
+
+	CMOS
+		Almacena as configuracion do firmware
+		volatil->necesita un pila
+		Clear CMOS
+
+	formato
+		at absodelo
+			so un conector transeiro o do teclado
+			conecores de fonte do almentacion diferente
+		atx extender
+			form-factor EATX.ATx,Micro-ATX,ITX
+
+	Zocalo do Procesador
+		slot
+			ranura(obsoleto)
+		socket
+			pga(pinchos)
+				antigo,amd am4
+			lga(contactos,tapa)
+				moderno
+				AMD,Intel
+		Slots de Expansión
+			grafica
+				AGP(Advanced Graphics Port - Obsoleto)
+				PCI-E x16 (Porto)
+					SLI(NVIDIA) crossfire(AMD)
+			proposito Xeral
+				ISA(obsoleta)
+				PCI(BUS)
+				PCI-e x1,x4,x8 (Portos)
+
+	Ram 
+		Formato do zócalo: DIMM, SO-DIMM
+		Tecnoloxía:DDR4,DDR5
+		Frecuencia
+		Tamaño máximo de Ram soportada
+		Dual-Channal
+
+	Almacenamento
+		IDE(BUS)
+		SATA(Porto)
+		M.2-NVMe-PCI-Express
+
+		RAID-0 velocidade
+		RAID-1 Toleracia a erros
+
+Procesador(CPU)
+	socket
+		pga(pinchos)
+			antigo,amd am4
+		lga(contactos,tapa,ZIF:zero insertion force)
+			moderno
+			AMD,Intel
+	núcleos
+		P-core(para trabaja duro)
+		E-core(hyperthreading, para vario trabajo)
+		LP-E core(low power efficient cores, para trabajo no necesita tanto recurso)
+	nomeacion
+		https://www.intel.cn/content/www/cn/zh/processors/processor-numbers.html
+	comparar cpu
+		https://www.cpu-monkey.com/es/
+
+Sistemas de Almacenamento
+	bus: 133MB/s
+		IDE
+		PATA
+	porto: 600 MB/S
+		SATA
+	M.2: 14000 MB/s
+		NVMe (PCI-e 5.0)
+
+	bottleneck(瓶颈)
+
+Tarjeta Grafiga
+	tipo
+		iGPU (CPU)
+		eGPU (PCI-e x16)
+	Interface
+		VGE(D-sub) -analógico
+		DVI -digital
+		DISPLAN Port -digital
+		HDMI -digital
+	2-way sli capable (nvidia)
+
+
+Memoria
+	Formato do zócalo: DIMM, SO-DIMM
+	Tecnoloxía:DDR4,DDR5
+	Dual-Channal
+
+caixa del ordenador
+	tamaño
+	portos frontais
+		usb
+		 usb a
+		 	usb 1.x - obsoleto
+			usb 2.0 -
+			usb 3.0 - azules
+		 usb c 
+
+
