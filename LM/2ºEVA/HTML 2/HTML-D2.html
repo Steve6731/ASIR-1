@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UFT-8">
+        <title>Formulario</title>
+    </head>
+
+    <body>
+        <h1>Ejemplo de formulario. Matriculación en el ASIR</h1>
+
+        <form action="">
+            <b style="font-size: 19px;">Nombre: </b><input type="text" name="nombre"> &nbsp;
+            <b style="font-size: 19px;">Apellidos: </b><input type="text" name="apellidos"> &nbsp;
+            <b style="font-size: 19px;">Sexo: </b>
+                <input type="radio" name="sex" value="mujer"> <span style="font-size: 19px;">M</span>
+                <input type="radio" name="sex" value="hombre"> <span style="font-size: 19px;">H</span> 
+            
+                <br><br>
+
+            <b style="font-size:  19px;">Fecha de nacimiento: </b> 
+            <select name="dia">
+                <option value="d1">1</option>
+                <option value="d2">2</option>
+                <option value="d3">3</option>
+                <option value="d4">4</option>
+                <option value="d5">5</option>
+                <option value="d6">6</option>
+                <option value="d7">7</option>
+                <option value="d8">8</option>
+                <option value="d9">9</option>
+                <option value="d10">10</option>
+                <option value="d11">11</option>
+                <option value="d12">12</option>
+                <option value="d13">13</option>
+                <option value="d14">14</option>
+                <option value="d15">15</option>
+                <option value="d16">16</option>
+                <option value="d17">17</option>
+                <option value="d18">18</option>
+                <option value="d19">19</option>
+                <option value="d20">20</option>
+                <option value="d21">21</option>
+                <option value="d22">22</option>
+                <option value="d23">23</option>
+                <option value="d24">24</option>
+                <option value="d25">25</option>
+                <option value="d26">26</option>
+                <option value="d27">27</option>
+                <option value="d28">28</option>
+                <option value="d29">29</option>
+                <option value="d30">30</option>
+                <option value="d31">31</option>
+            </select>
+
+            <select name="mes">
+                <option value="m1">Enero</option>
+                <option value="m2">Febrero</option>
+                <option value="m3">Marzo</option>
+                <option value="m4">Abril</option>
+                <option value="m5">Mayo</option>
+                <option value="m6">Junio</option>
+                <option value="m7">Julio</option>
+                <option value="m8">Agosto</option>
+                <option value="m9">Septiembre</option>
+                <option value="m10">Octubre</option>
+                <option value="m11">Noviembre</option>
+                <option value="m12">Diciembre</option>
+            </select>
+                
+            <select name="año">
+                <option value="a2005">2005</option>
+                <option value="a2006">2006</option>
+                <option value="a2007">2007</option>
+            </select> 
+            
+            <br><br>
+
+            <b style="font-size:  17px;">Escoge los módulos en los que te matriculas: </b><br>
+            
+            <br>
+
+            <table>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="matriculas[]" value="FH">Fundamentos de Hardware</td>
+                    <td><input type="checkbox" name="matriculas[]" value="SRI">Servicios de Red e Internet</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="matriculas[]" value="GBD">Gestión de Bases de Datos</td>
+                    <td><input type="checkbox" name="matriculas[]" value="ASO">Administración de Aplicaciones Web</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="matriculas[]" value="ISO">Implantación de Sistemas Operativos</td>
+                    <td><input type="checkbox" name="matriculas[]" value="IAW">Implantación de Aplicaciones Web</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="matriculas[]" value="PAR">Planiifcación y Administración de Redes</td>
+                    <td><input type="checkbox" name="matriculas[]" value="ASGBD">Administración de Sistemas Gestores de Bases de Datos</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="matriculas[]" value="LMSGI">Lenguajes de Marcas y Sistemas de Gestión de Información</td>
+                    <td><input type="checkbox" name="matriculas[]" value="SAD">Seguridad y Alta Disponibilidad</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="matriculas[]" value="FOL">Formación y Orientación Laboral</td>
+                    <td><input type="checkbox" name="matriculas[]" value="EIE">Empresa e Iniciativa Emprendedora</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="matriculas[]" value="PASIR">Proyecto de Administración de Sistemas Informáticos en Red</td>
+                    <td><input type="checkbox" name="matriculas[]" value="FCT">Formación en Centros de Trabajo</td>
+                </tr>
+
+            </tbody>
+            </table>
+        
+        <br>
+
+        <h4>Estudios previos: </h4>
+        <textarea name="estudiosPrevios" rows="4" cols="60"></textarea>
+
+        <br><br>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Restablecer">
+
+        <br><br>
+
+        Pulsa el botón de "enviar" para formalizar la matricula o el boton de "restablecer" para limpiar el formulario.
+        
+        </form>
+
+    </body>
+
+</html>

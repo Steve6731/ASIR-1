@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+  <head> 
+    <meta charset="utf-8"> 
+    <title>Table</title> 
+  </head>
+
+  <style type="text/css">
+      table .Mate   {background-color: rgb(235, 40, 75);color: rgb(255, 255, 255);}
+      table .Leng   {background-color: rgb(135, 60, 60);color: rgb(255, 255, 255);}
+      table .EduF   {background-color: rgb(245, 170, 170);}
+      table .Recr   {background-color: rgb(100, 255, 155);}
+      table .Info   {background-color: rgb(255, 255, 0);}
+  </style>
+
+  <body>
+    <table border="1">
+    <tbody align="center">
+      <!--The head-->
+      <tr>
+        <th>Horas</th>
+        <th>Lunes</th>
+        <th>Martes</th>
+        <th>Miércoles</th>
+        <th>Jueves</th>
+        <th>Viernes</th>
+      </tr>
+
+      <!-- 8:00-9:00 -->
+      <tr>
+        <td>8:00-9:00</td>
+        <td class="Mate" rowspan="2" >Matemáticas</td>
+        <td class="Leng">Lengua</td>
+        <td>Música</td>
+        <td>&nbsp;</td>
+        <td class="Mate" rowspan="2">Matemáticas</td>
+      </tr>
+      <!-- 9:00-10:00 -->
+      <tr>
+        <td>9:00-10:00</td>
+        <td>Inglés</td>
+        <td>Inglés</td>
+        <td class="EduF">E.Física</td>
+      </tr>
+      <!-- 10:00-10:30 -->
+      <tr>
+        <td>10:00-10:30</td>
+        <td class="Recr" colspan="5">Recreo</td>
+      </tr>
+      <!-- 10:30-11:30 -->
+      <tr>
+        <td>10:30-11:30</td>
+        <td class="EduF">E.Física</td>
+        <td>Valenciano</td>
+        <td class="Leng" rowspan="2">Lengua</td>
+        <td class="Info">Informática</td>
+        <td>Inglés</td>
+      </tr>
+      <!-- 12:30-13:30 -->
+      <tr>
+        <td>12:30-13:30</td>
+        <td>Música</td>
+        <td class="EduF">E.Física</td>
+        <td class="Mate" rowspan="2">Matemáticas</td>
+        <td class="Info">Informática</td>
+      </tr>
+      <!-- 13:30-14:30 -->
+      <tr>
+        <td>13:30-14:30</td>
+        <td>&nbsp;</td>
+        <td class="Info">Informática</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+      </tr>
+      
+    </tbody>
+    </table>
+
+  </body>
+</html>
