@@ -1,0 +1,11 @@
+robocopy "C:\Program Files" "D:\Program Files" /copyall /MIR /XJ
+rd "C:\Program Files" /s /q
+mklink "C:\Program Files" "D:\Program Files" /j
+
+robocopy "C:\Program Files(x86)" "D:\Program Files(x86)" /copyall /MIR /XJ
+rd "C:\Program Files(x86)" /s /q
+mklink "C:\Program Files(x86)" "D:\Program Files(x86)" /j
+
+robocopy "C:\Users" "D:\Users" /copyall /MIR /XJ
+rd "C:\Users" /s /q
+mklink "C:\Users" "D:\Users" /j

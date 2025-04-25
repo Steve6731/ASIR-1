@@ -1,0 +1,29 @@
+get-Process | Sort-Object cpu -Descending | select-object -First 5
+get-package | get-member
+get-package | where-object {$_.ProviderName -eq "Programs"} | Where-Object {$_.name -like "Cisco*"}
+Get-Package | Where-Object {$_.name -like "virtual*"}
+$versionVBOX = (Get-Package | Where-Object {$_.name -like "virtual*"} | Select-Object Version)
+Write-Output $versionVBOX
+#--------------------------------#
+Select-Object
+Get-Member  #(command).object
+get-help
+get-command -name *内容*
+Where-Object {$_.类 -eq "值"}
+Sort-Object
+Read-Host("text")
+write-host #("text",valor)
+#--------------------------------#
+for ($i=值; $i -lt 10;$ i++){
+   new-LocalUser -name "alumnos&($i) -noPassword"
+}
+#--------------------------------#
+[int] $num = read-host("write a number")
+
+$i = $num
+while ($i -ne 0){
+   write-host($i)
+   $i = $i -1
+}
+#--------------------------------#
+Powershell -excutionPolicy Bypass .\名字

@@ -1,0 +1,29 @@
+como quedarían os permiso dos próximos arquibos despois de?
+
+• umask 777 ---------
+• umask 425 r--rw--w-
+• umask 222 rw-rw-rw-
+• umask 123 rw-r-x-wx
+• umask 555 -w--w--w-
+• umask 347 r-xr-----
+
+Cal sería a máscara que lle hai que pasar ao comando umask para que os seguintes
+directorios queden con eses permisos?
+
+• rwx --- --- umask 077
+• rw- rw- rw- umask 111
+• rwx rwx rwx umask 000
+
+Test de Permisos
+[X]   a\ O comando chmod 742 f1 asigna os permisos -rwxr---w- o arquivo f1.
+[X]   b\ O comando chmod 777 f1 ; chmod a-w f1 equivale a chmod 555 f1.
+[✓]   c\ Se un arquivo non ten permisos de lectura ninguén poderá lelo.
+[✓]   d\ Se un directorio ten os permisos d-wx-wx-wx , os usuarios normais só poderán
+      acceder aos seus arquivos se coñecen os seus nomes.
+[✓]   e\ Para facer cd /dir1/dir2/dir3/dir4 necesitamos permisos de execución
+      para cada un dos directorios.
+[✓]   f\ Para facer echo > fich1 necesitamos sempre permisos de escritura no
+      directorio actual. Se fich1 existe tamén se precisamos permiso de escritura
+      para fich1.
+[X]   g\ Si a máscara de umask é 777, os arquivos se crearán sempre con todos os
+      permisos.

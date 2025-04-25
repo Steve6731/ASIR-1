@@ -1,0 +1,9 @@
+web: https://overthewire.org/wargames/bandit/bandit0.html
+level0: ssh bandit.labs.overthewire.org -p 2220 -l bandit1
+level1: ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If
+level2: 263JGJPfgU6LtdEvgfWU1XP5yac29mFx
+level3: MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx
+level4: 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
+level5: 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
+level6: HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
+level7: morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj

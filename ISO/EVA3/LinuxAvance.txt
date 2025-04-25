@@ -1,0 +1,32 @@
+/etc/passwd => /etc/shadow
+/etc/group  => /etc/gshadow
+
+adduser nomeUsuario
+adduser nomeUsuario nomeGroup
+addgroup nomeGroup
+groups
+deluser nomeUsuario
+delgroup
+
+usermod
+groupmod
+chowner 
+chgrp
+passwd
+gpasswd
+newgrp nomeGroup #entra un group temporalmente
+
+setfacl
+getfacl
+
+--descomprimir
+tar xf [*.tar.gz]
+tar xzf (gzip)
+tar xjf (bzips)
+tar xJf (xz)
+--comprimir
+tar cf [*.tar.gz] [archivos]
+
+rdiff-backup backup [orixe/] [backup/] --print-statistics
+rdif-backup list increments [BACKUP/]
+rdiff-backup restore --at [incrementos] BACKUP [backup/]

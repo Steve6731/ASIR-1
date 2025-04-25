@@ -1,0 +1,32 @@
+ayuda:
+--help
+man nome(comando)
+
+mkdir -p /eje/D{1..3}
+
+ln orixianl enlaceR
+ln -s orixinal enlaceS
+
+chmod ug+rw,o-wx "fiche1"        chmod 777 "fiche1"
+export PATH=$PATH:~/scripts      nano /etc/profile
+umask 777 
+chgrp                            cat /etc/group
+chown
+
+
+
+'locate' for nome of a archive
+   >simple y rapido
+
+find [dirInicio] [condicion] [accións]
+      [condicion]: -name -iname -user -group -perm -type
+      [accións]: -exec rm{} -delete \;
+   >completo y potente
+
+find / -name *.ogg 2> /dev/null > resultados.txt &
+find / -name *.ogg -exec cp{} /tmp/D1 \;
+
+grep [text] [--color] -[A|B] [number] [-c] 
+
+dpkg -i [paquete.deb]
+apt -f install ./[paquete.deb]
