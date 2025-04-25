@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persona dni="12345678-L" 
+    xsi:noNamespaceSchemaLocation="XSD_C1.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+>
+	<nombre>Juan</nombre>
+	<apellido>Abascal</apellido>
+	<estadoCivil>Soltero</estadoCivil>
+	<edad>60</edad>
+	<enActivo/>
+</persona>

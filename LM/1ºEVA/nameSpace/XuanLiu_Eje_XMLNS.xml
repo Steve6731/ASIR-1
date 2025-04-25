@@ -1,0 +1,95 @@
+<?xml version="1.1" encoding="utf-8"?>
+<!-- ciclos.xml -->
+
+<!DOCTYPE ciclos [
+    <!ELEMENT ciclos (ciclo*)>
+        <!ATTLIST ciclos xmlns:m CDATA #FIXED "www.modulo.com">
+        <!ATTLIST ciclos xmlns:a CDATA #FIXED "www.alumno.com">
+
+        <!ELEMENT ciclo (m:modulo*,a:alumno*)>
+            <!ATTLIST ciclo id ID #REQUIRED>
+            <!ATTLIST ciclo grao CDATA #REQUIRED>
+            
+            <!ELEMENT m:modulo (m:nome,m:horas)>
+                <!ATTLIST m:modulo id ID #REQUIRED>
+                
+                <!ELEMENT m:nome (#PCDATA)>
+                <!ELEMENT m:horas (#PCDATA)>
+            
+            <!ELEMENT a:alumno (a:nome,a:apelidos,a:ciclo,a:curso,a:datanacemento,a:nota)>
+                <!ELEMENT a:nome (#PCDATA)>
+                <!ELEMENT a:apelidos (#PCDATA)>
+                <!ELEMENT a:ciclo (#PCDATA)>
+                <!ELEMENT a:curso (#PCDATA)>
+                <!ELEMENT a:datanacemento (#PCDATA)>
+                <!ELEMENT a:nota (#PCDATA)>
+
+]>
+
+
+
+<ciclos xmlns:m="www.modulo.com" xmlns:a="www.alumno.com">
+    <ciclo id="ASIR" grao="CS">
+        <m:modulo id="MP0370">
+            <m:nome>Planificacion e administracion de redes</m:nome>
+            <m:horas>213</m:horas>
+        </m:modulo>
+        
+        <m:modulo id="MP0371">
+            <m:nome>Fundamentos hardware</m:nome>
+            <m:horas>107</m:horas>
+        </m:modulo>
+
+        <a:alumno>
+            <a:nome>Xoan</a:nome>
+            <a:apelidos>Cancedo da Foz</a:apelidos>
+            <a:ciclo>ASIR ordinario</a:ciclo>
+            <a:curso>1</a:curso>
+            <a:datanacemento>06/11/1991</a:datanacemento>
+            <a:nota>Xa fixo outro ciclo</a:nota>
+        </a:alumno>
+
+        <a:alumno>
+            <a:nome>Luisa</a:nome>
+            <a:apelidos>calos jose</a:apelidos>
+            <a:ciclo>ASIR ordinario</a:ciclo>
+            <a:curso>1</a:curso>
+            <a:datanacemento>02/12/1990</a:datanacemento>
+            <a:nota>Xa fixo outro ciclo</a:nota>
+        </a:alumno>
+
+
+    </ciclo>
+
+    <ciclo id="DAW" grao="CS">
+        <m:modulo id="MD0370">
+            <m:nome>Planificacion e administracion de redes</m:nome>
+            <m:horas>213</m:horas>
+        </m:modulo>
+        
+        <m:modulo id="MD0371">
+            <m:nome>Fundamentos hardware</m:nome>
+            <m:horas>107</m:horas>
+        </m:modulo>
+
+        <a:alumno>
+            <a:nome>Xoan</a:nome>
+            <a:apelidos>Cancedo da Foz</a:apelidos>
+            <a:ciclo>ASIR ordinario</a:ciclo>
+            <a:curso>1</a:curso>
+            <a:datanacemento>06/11/1991</a:datanacemento>
+            <a:nota>Xa fixo outro ciclo</a:nota>
+        </a:alumno>
+
+        <a:alumno>
+            <a:nome>Luisa</a:nome>
+            <a:apelidos>calos jose</a:apelidos>
+            <a:ciclo>ASIR ordinario</a:ciclo>
+            <a:curso>1</a:curso>
+            <a:datanacemento>02/12/1990</a:datanacemento>
+            <a:nota>Xa fixo outro ciclo</a:nota>
+        </a:alumno>
+
+    </ciclo >
+
+</ciclos>

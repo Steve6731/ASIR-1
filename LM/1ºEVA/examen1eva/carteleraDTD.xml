@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cartelera [
+	<!ELEMENT cartelera (peliculas,cines)>
+		<!ATTLIST cartelera ciudad (Vigo|Cangas) "Cangas">
+		<!ELEMENT peliculas (pelicula+)>
+			<!ELEMENT pelicula (titulo,director+)>
+				<!ATTLIST pelicula idPelicula ID #REQUIRED>
+				<!ELEMENT titulo (#PCDATA)>
+					<!ATTLIST titulo anio CDATA #REQUIRED>
+				<!ELEMENT director (#PCDATA)>
+		<!ELEMENT cines (cine*)>
+			<!ELEMENT cine (nombre,sesiones*)>
+				<!ELEMENT nombre (#PCDATA)>
+				<!ELEMENT sesiones (sesion+)>
+					<!ATTLIST sesiones sala (S1|S2|S3|S4|S5) #REQUIRED>
+					<!ATTLIST sesiones pelicula IDREF #REQUIRED>
+					<!ELEMENT sesion (precio)>
+						<!ATTLIST sesion hora CDATA #REQUIRED>
+						<!ELEMENT precio (#PCDATA)>
+]>
+
+<cartelera ciudad="Vigo">
+	<peliculas>
+		<pelicula idPelicula="P1234">
+			<titulo anio="2011">La invención de Hugo</titulo>
+			<director>Martin Scorsese</director>
+		</pelicula>
+		<pelicula idPelicula="P2345">
+			<titulo anio="2012">John Carter</titulo>
+			<director>Andrew Stanton</director>
+		</pelicula>
+		<pelicula idPelicula="P3456">
+			<titulo anio="2011">Intocable</titulo>
+			<director>Olivier Nakache</director>
+		</pelicula>
+	</peliculas>
+	<cines>
+		<cine>
+			<nombre>Avenida</nombre>
+			<sesiones sala="S1" pelicula="P1234">
+				<sesion hora="16:50">
+					<precio>10.55</precio>
+				</sesion>
+				<sesion hora="18:00">
+					<precio>7.95</precio>
+				</sesion>
+			</sesiones>
+			<sesiones sala="S5" pelicula="P3456">
+				<sesion hora="21:00">
+					<precio>10.25</precio>
+				</sesion>
+			</sesiones>
+		</cine>
+		<cine>
+			<nombre>Pequeño cine</nombre>
+			<sesiones sala="S2" pelicula="P2345">
+				<sesion hora="11:00">
+					<precio>9.95</precio>
+				</sesion>
+			</sesiones>
+		</cine>
+	</cines>
+</cartelera>

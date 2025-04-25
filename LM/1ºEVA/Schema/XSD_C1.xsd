@@ -1,0 +1,37 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="persona">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="nombre" type="xs:string"/>
+                <xs:element name="apellido" type="xs:string"/>
+                <xs:element name="estadoCivil" type="tipoEstado"/>
+                <xs:element name="edad" type="tipoEdad"/>
+                <xs:element name="enActivo" minOccurs="0"/>
+            </xs:sequence>
+            <xs:attribute name="dni">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{8}[\-][a-zA-Z]"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:attribute>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="tipoEstado">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Soltero"/>
+            <xs:enumeration value="Casado"/>
+            <xs:enumeration value="Divorciado"/>
+            <xs:enumeration value="Viudo"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="tipoEdad">
+        <xs:restriction base="xs:integer">
+            <xs:minInclusive value="0"/>
+            <xs:maxInclusive value="150"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

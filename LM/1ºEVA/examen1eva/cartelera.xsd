@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="cartelera">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="peliculas" type="tipoPeliculas"/>
+                <xs:element name="cines" type="tipoCines"/>
+            </xs:sequence>
+            <xs:attribute name="ciudad" type="FormCiudad"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="FormCiudad">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Cangas" />
+            <xs:enumeration value="Vigo" />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="tipoPeliculas">
+        <xs:sequence>
+            <xs:element name="pelicula" minOccurs="1" maxOccurs="unbounded">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="titulo" type="xs:string" minOccurs="1"/>
+                        <xs:element name="director" type="xs:string" maxOccurs="unbounded"/>
+                    </xs:sequence> 
+                    <xs:attribute name="idPelicula" type="FormPeli">
+                    </xs:attribute>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoCines">
+        <xs:sequence>
+            <xs:element name="cine" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="nombre" minOccurs="1"/>
+                        <xs:element name="sesiones" type="tipoSesiones" minOccurs="1" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tipoSesiones">
+        <xs:attribute name="sala" type="FormSala"/>
+        <xs:attribute name="pelicula" type="FormPeli"/>
+    </xs:complexType>
+
+    <xs:simpleType name="FormSala">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="S1"/>
+            <xs:enumeration value="S2"/>
+            <xs:enumeration value="S3"/>
+            <xs:enumeration value="S4"/>
+            <xs:enumeration value="S5"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="FormPeli">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[P][0-9]{4}"></xs:pattern>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

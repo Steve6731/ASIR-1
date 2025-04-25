@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Multinacional [
+    <!ELEMENT Multinacional (futuro+,divisa+,bono+,letra+)>
+
+    <!ELEMENT futuro (operacionanterior,expected_value,mercado*)>
+        <!ATTLIST futuro precio CDATA "0">
+        <!ELEMENT expected_value (#PCDATA)>
+        <!ELEMENT mercado EMPTY>
+            <!ATTLIST mercado Pais CDATA #REQUIRED>
+
+    <!ELEMENT divisa (operacionanterior,cambio*)>
+        <!ATTLIST divisa precio CDATA "0">
+        <!ATTLIST divisa estable (si|no) #IMPLIED>
+        <!ELEMENT cambio (dinero*)>
+            <!ELEMENT dinero (#PCDATA)>
+                <!ATTLIST dinero nombre CDATA #REQUIRED>
+
+    <!ELEMENT bono (operacionanterior,pais_de_procedencia)>
+        <!ATTLIST bono precio CDATA "0">
+        <!ATTLIST bono estable (si|no) #IMPLIED>
+        <!ATTLIST bono valor_deseado CDATA #IMPLIED>
+        <!ATTLIST bono valor_minimo CDATA #IMPLIED>
+        <!ATTLIST bono valor_maximo CDATA #IMPLIED>
+        <!ELEMENT pais_de_procedencia (#PCDATA)>
+
+    <!ELEMENT letra (operacionanterior,pais_emisor)>
+        <!ATTLIST letra precio CDATA "0">
+        <!ELEMENT pais_emisor EMPTY>
+            <!ATTLIST pais_emisor ID_PAIS ID #REQUIRED>
+
+        
+        <!ELEMENT operacionanterior EMPTY>
+            <!ATTLIST operacionanterior pais (Madrid|Roma|Frankfurt|Tokio) "Madrid">
+
+]>
+
+
+<Multinacional>
+    <futuro precio="98">
+        <operacionanterior pais="Roma" />
+        <expected_value>6879</expected_value>
+        <mercado Pais="America" />
+    </futuro>
+
+    <futuro >
+        <operacionanterior />
+        <expected_value>123214</expected_value>
+    </futuro>
+
+    <divisa precio="0" estable="si"> 
+        <operacionanterior pais="Tokio"/>
+        <cambio>
+            <dinero nombre="euro">15.2</dinero>
+            <dinero nombre="dolar">4687</dinero>
+        </cambio>
+    </divisa>
+
+    <divisa>
+        <operacionanterior />
+    </divisa>
+
+    <bono precio="128" estable="si" valor_deseado="123" valor_maximo="123544" valor_minimo="1">
+        <operacionanterior pais="Frankfurt"/>
+        <pais_de_procedencia>España</pais_de_procedencia>
+    </bono>
+
+    <bono>
+        <operacionanterior />
+        <pais_de_procedencia>Francia</pais_de_procedencia>
+    </bono>
+
+    <letra precio="999">
+        <operacionanterior pais="Madrid"/>
+        <pais_emisor ID_PAIS="CH" />
+    </letra>
+
+    <letra>
+        <operacionanterior />
+        <pais_emisor ID_PAIS="ES" />
+    </letra>
+
+</Multinacional>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<musica xsi:noNamespaceSchemaLocation="musica.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <musico>
+    <nombre>Antonio</nombre>
+	<apellidos>Vivaldi</apellidos>
+    <nacido>
+      <dia>4</dia>
+      <mes>3</mes>
+      <anio>1678</anio>
+	</nacido>
+    <fallecido>
+      <dia>28</dia>
+      <mes>7</mes>
+      <anio>1741</anio>
+	</fallecido>
+	<origen pais="Italia"/>
+  </musico>  
+  <musico>
+    <nombre>Johannes</nombre>
+    <apellidos>Mozart</apellidos>
+    <nacido>
+      <dia>27</dia>
+      <mes>1</mes>
+      <anio>1756</anio>
+	</nacido>
+    <fallecido>
+      <dia>5</dia>
+      <mes>12</mes>
+      <anio>1791</anio>
+	</fallecido>
+	<origen pais="Austria"/>
+  </musico>
+  <musico>
+    <nombre>Ludwig Van</nombre>
+    <apellidos>Beethoven</apellidos>
+    <nacido>
+      <dia>16</dia>
+      <mes>12</mes>
+      <anio>1770</anio>
+	  </nacido> 
+	  <origen pais="Alemania"/>
+  </musico>
+  
+</musica>

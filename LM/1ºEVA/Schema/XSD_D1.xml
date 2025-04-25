@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Ejercicios
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="XSD_D1a.xsd"
+>
+    <ejercicio1>
+        <cantidad>20</cantidad>
+    </ejercicio1>
+
+    <ejercicio2>
+        <cantidad divisa="euro">20</cantidad>
+        <cantidad divisa="dolar">18.32</cantidad>
+    </ejercicio2>
+
+    <ejercicio3>
+        <cantidad divisa="euro">20</cantidad>
+        <cantidad divisa="dolar">18.32</cantidad>
+    </ejercicio3>
+
+    <ejercicio4>
+        <codigo sede="España">AA23Abc</codigo>
+    </ejercicio4>
+
+</Ejercicios>

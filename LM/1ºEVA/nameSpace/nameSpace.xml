@@ -1,0 +1,46 @@
+<!DOCTYPE ejercicio1 [
+    <!ELEMENT ejercicio1 (e1:carta,e2:carta)>
+        
+        <!ELEMENT e1:carta (e1:palo,e1:numero)>
+            <!ATTLIST e1:carta xmlns:e1 CDATA #FIXED "www.xuan.com/espacio1">
+            
+            <!ELEMENT e1:palo (#PCDATA)>
+            <!ELEMENT e1:numero (#PCDATA)>
+
+        <!ELEMENT e2:carta (e2:carnes,e2:pescados)>
+            <!ATTLIST e2:carta xmlns:e2 CDATA #FIXED "www.xuan.com/espacio2">
+
+            <!ELEMENT e2:carnes (e2:filete_de_ternera,e2:solomillo_a_la_pimienta)>
+                <!ELEMENT e2:filete_de_ternera EMPTY>
+                    <!ATTLIST e2:filete_de_ternera precio CDATA #REQUIRED>
+                <!ELEMENT e2:solomillo_a_la_pimienta EMPTY>
+                    <!ATTLIST e2:solomillo_a_la_pimienta precio CDATA #REQUIRED>
+            
+            <!ELEMENT e2:pescados (e2:lenguado_al_horno,e2:merluza_en_salsa_verde)>
+                <!ELEMENT e2:lenguado_al_horno EMPTY>
+                    <!ATTLIST e2:lenguado_al_horno precio CDATA #REQUIRED>
+                <!ELEMENT e2:merluza_en_salsa_verde EMPTY>
+                    <!ATTLIST e2:merluza_en_salsa_verde precio CDATA #REQUIRED>
+
+]>
+
+
+<ejercicio1>
+
+<e1:carta xmlns:e1="www.xuan.com/espacio1">
+    <e1:palo>Corazones</e1:palo>
+    <e1:numero>7</e1:numero>
+ </e1:carta>
+ 
+ <e2:carta xmlns:e2="www.xuan.com/espacio2">
+    <e2:carnes>
+       <e2:filete_de_ternera precio="12.95"/>
+       <e2:solomillo_a_la_pimienta precio="13.60"/>
+    </e2:carnes>
+    <e2:pescados>
+       <e2:lenguado_al_horno precio="16.20"/>
+       <e2:merluza_en_salsa_verde precio="15.85"/>
+    </e2:pescados>
+ </e2:carta>
+
+</ejercicio1>
