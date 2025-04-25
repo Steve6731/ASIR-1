@@ -1,0 +1,31 @@
+name: Intel Core i7-9700k, AMD Ryzen 5 5600x 
+code name: comet lake, Zen 3
+TDP(Thermal Desing Power): consumo electrico teorico maxima
+Package: soket
+Technology: 7nm,14nm
+Core Voltage:  voltio de procesador está a utilizar.
+Specification: descricion dettallada del modelo del procesador.
+Family,Model,Stepping,Ext.Family,Ext.Model:  como su nombre
+clocks: 
+   core speed: frecuencia actual del CPU (core speed = multiplier X buspeed)
+   multiplier: valor que se multiplica por la furecuacia base
+   bus speed: como su nombre
+caché: L1, L2, L3
+
+core: Nº fisico que CPU tiene
+threads: fíos de execucion que puede manjar.
+
+
+conjunto base X86: (usa para cpu de 32bit)
+x86-64: compatible para 64bit y 32bit.
+
+SMID
+   MMX: para multimedia
+   SSE2 SSE3 SSE 4 
+   AVX2 AVX-512
+
+aes-ni: crptograficas
+SHA: para crptograficas (funciones hash)
+VT-x: para maquinas virtuais
+
+fsb : dram :Proporcionalidad entre cpu y memoria
