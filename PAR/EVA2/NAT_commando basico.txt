@@ -1,0 +1,17 @@
+--NAT static
+(config)# ip nat inside source static [ip-privada][ip-pública]
+
+--NAT dinamico
+(config)# ip nat pool [nombre] [IPinicial] [IPfinal] netmask [máscara]
+(config)# access-list [número] permit [IP] [wildcard]
+(config)# ip nat inside source list [número] pool [nombre]
+
+--NAT con sobrecarga o PAT
+(config)# access-list [n] permit [IP] [wildcard]
+(config)# ip nat inside source list [n] interface [nombre] [número] overload
+
+--configuracion necesario para interface
+(config)# interface [nombre][número]
+(config-if)# ip nat inside
+(config)# interface [nombre][número]
+(config-if)# ip nat outside

@@ -1,0 +1,46 @@
+> enable
+   # conf t
+      (config)# interface [interface]
+         (config-if)# [command]
+
+# show running-config
+# show router
+# show access-lists
+# show mac-address-table
+# show cdp neighbors
+
+(config)# hostname [name]
+(config)# ip router [address-origen] [mascara] [address-termina]
+
+(config-if)# ip address [address] [mascara]
+(config-if)# no shutdown
+
+(config)# ip access-list {standard | extended} {numero | nombre} --entra modo ACL
+--ACL standard
+(config)# access-list numeroACL {permit | deny} [origen] [Wildcard-origen]
+--ACL Extendida
+(config)# access-list numeroACL {permit | deny} [protocolo] [origen] [Wildcard-origen] [destino] [Wildcard-destino] [operación] [puerto destino] [established]
+(config-if)#ip access-group <acl-number | nombre> {in | out} --pon ACL en un interface
+
+--DHCP
+(config)# ip dhcp pool [name]
+(dhcp-config)# default-router [address]
+(dhcp-config)# dns-server [address]
+(dhcp-config)# network [Red Address] [mascara]
+--DHCP 2
+(config)# ip dhcp excluded-address [address-inicial] [address-final]
+--DHCP relay
+(config)# interface [interface-fisico]
+(config-if)# ip helper-address [address]
+
+--SSH
+(config)# enable secret [password] --contraseña para conf termina
+(config)# ip domain-name [domain-name]
+(config)# crypto key generate rsa
+(config)# username [name] password [password]
+(config)# line vty 0 15
+(config-line)# transport input SSH
+(config-line)# login local
+--otro de login
+(config-line)# exec-timeout [minutes]  --dentro de unos minutos no necesita password si login una vez
+(config-line)# logging synchronous

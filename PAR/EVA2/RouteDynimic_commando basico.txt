@@ -1,0 +1,26 @@
+# debug ip rip
+
+--RIP
+(config)# route rip
+(config-route)# version 2
+(config-route)# no auto-summary
+(config-route)# network [netAddress]
+
+--OSPF
+(config)# route ospf [numero de ospf]
+(config-router)# network [netAddress] [wildcard] area [numero de area]
+
+--OSPF 2
+(config)# interface [interface-fisico]
+(config-if)# ip ospf [numero de ospf] area [numero de area]
+
+--EIGRP
+(config)# route ospf [numero de EIGRP]
+(config-router)# network [netAddress] [wildcard]
+
+--other
+(config)# interface loNº
+   (config-if)# ip address [address] [mascara]
+(config-route)# router-id [idAddress]
+(config-route)# passive-interface [interface]
+(config-route)# default-information origiante

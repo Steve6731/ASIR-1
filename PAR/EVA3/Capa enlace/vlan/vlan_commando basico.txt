@@ -1,0 +1,26 @@
+# show mac-address-table
+# show mac address-table
+# show cdp neighbors
+# show vlan
+# show interface trunk
+
+(config)# no ip domain lookup
+
+(config)# vlan Nº --crear un vlan 
+   (config-vlan)#name [name]
+
+(config)# interface vlan 99 --entra modo vlan
+   (config-if)# ip address [address]
+
+(config)# interface [if-fisico]
+   (config-if)# switchport access vlan Nº
+
+switchport nonegotiate
+switchport mode trunk|access
+switchport trunk native
+switchport trunk allowed vlan [add] [nºvlan]
+
+route:
+interface g0/0/0.10
+encapsulation dotIQ 10
+ip ad [ip] [mask]

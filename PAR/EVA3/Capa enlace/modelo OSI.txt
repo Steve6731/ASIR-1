@@ -1,0 +1,3 @@
+                                     | port | datos |                          ==>      segment
+                         | IPO | IPD |     datos    |                          ==>      datagrama / packet
+Preambulo || MACD | MAC0 |          datos           | CRC || Preambulo         ==>      trama / frame
