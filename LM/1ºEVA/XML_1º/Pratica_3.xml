@@ -1,0 +1,47 @@
+<!--
+hotel
+	nombre
+	telefono
+	direccion
+		calle
+		numero
+		ciudad
+		pais
+	descipcion
+	numero habituacion uno doble trible
+-->
+<hoteles>
+	<hotel>
+		<nombre>Javiel</nombre>
+		<telefono>688486654</telefono>
+		<direccion>
+			<calle></calle>
+			<numero></numero>
+			<ciudad></ciudad>
+			<pais></pais>
+		</direccion>
+		<descipcion></descipcion>
+		<numeroHabitacion>
+			<individual></individual>
+			<doble></doble>
+			<trible></trible>
+		</numeroHabitacion>
+	</hotel>
+
+	<hotel>
+		<nombre></nombre>
+		<telefono></telefono>
+		<direccion>
+			<calle></calle>
+			<numero></numero>
+			<ciudad></ciudad>
+			<pais></pais>
+		</direccion>
+		<descipcion></descipcion>
+		<numeroHabitacion>
+			<individual></individual>
+			<doble></doble>
+			<trible></trible>
+		</numeroHabitacion>
+	</hotel>
+</hoteles>

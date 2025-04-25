@@ -1,0 +1,25 @@
+<NEGOCIO>
+	<videojuego>
+	
+		<lucha>
+			<cantidad></cantidad>
+		</lucha>
+		
+		<cocina>
+			<cantidad></cantidad>
+		</cocina>
+		
+		<arte>
+			<cantidad></cantidad>
+		</arte>
+		
+	</videojuego>
+	
+	<figura>
+	
+		<tamaño></tamaño>
+		<precio></precio>
+		
+	</figura>
+	
+</NEGOCIO>

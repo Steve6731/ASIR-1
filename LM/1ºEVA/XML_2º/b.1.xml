@@ -1,0 +1,27 @@
+<?xml version ="1.0" encoding="UTF-8"?>
+
+<Libros_XML>
+	<libro>
+		<ISBN></ISBN>
+		<titulo></titulo>
+		<nivel></nivel>
+		<autor></autor>
+		<editorial></editorial>
+		<fecha></fecha>
+		<web></web>
+		<precio></precio>
+	</libro>
+	
+	<libro>
+		<ISBN></ISBN>
+		<titulo></titulo>
+		<nivel></nivel>
+		<autor></autor>
+		<editorial></editorial>
+		<fecha></fecha>
+		<web></web>
+		<precio></precio>
+	</libro>
+	
+</Libros_XML>
+	

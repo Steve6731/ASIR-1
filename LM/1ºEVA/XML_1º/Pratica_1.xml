@@ -1,0 +1,12 @@
+<ciclo>
+	<codigo> ASIR </codigo>
+	<regimen>Oridnario</regimen>
+	
+	<modulo>
+		<nombre>LMSX</nombre>
+		<profesor>Jaime </profesor>
+		<curso>1º</curso>
+		<horas>140 </horas>
+	</modulo>
+	
+</ciclo>

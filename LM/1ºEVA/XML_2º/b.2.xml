@@ -1,0 +1,30 @@
+<?xml version ="1.0" encoding="UTF-8"?>
+
+<coches>
+	<coche>
+		<marca></marca>
+		<modero></modero>
+		<motor></motor>
+		<matricula></matricula>
+		<kilometro></kilometro>
+		<presio_original></presio_original>
+		<presio_oferta></presio_oferta>
+		<extra></extra>
+		<fotos></fotos>
+
+	</coche>
+	
+	<coche>
+		<marca></marca>
+		<modero></modero>
+		<motor></motor>
+		<matricula></matricula>
+		<kilometro></kilometro>
+		<presio_original></presio_original>
+		<presio_oferta></presio_oferta>
+		<extra></extra>
+		<fotos></fotos>
+
+	</coche>
+
+</coches>
