@@ -1,5 +1,0 @@
---1
---lista departamento
---lista los profesores del departamento
---2
---lista datos de profesores para a 
