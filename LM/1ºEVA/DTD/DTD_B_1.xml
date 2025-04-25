@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE ListaCursos [
+<!ELEMENT ListaCursos (curoso+) >
+  <!ELEMENT curoso (estudiante+)>
+    <!ELEMENT estudiante (asignatura+)>
+        <!ATTLIST estudiante DNI ID #REQUIRED>
+        <!ATTLIST estudiante nombre CDATA #REQUIRED>
+        <!ATTLIST estudiante apellido1 CDATA #REQUIRED>
+        <!ATTLIST estudiante apellido2 CDATA #IMPLIED>
+
+        <!ELEMENT asignatura (profesor)>
+            <!ATTLIST asignatura nombre CDATA #REQUIRED>
+            <!ATTLIST asignatura codigo  CDATA #REQUIRED>
+
+            <!ELEMENT profesor EMPTY>
+                <!ATTLIST profesor NRP CDATA #REQUIRED>
+                <!ATTLIST profesor nombre CDATA #REQUIRED>
+                <!ATTLIST profesor apellido1 CDATA #REQUIRED>
+                <!ATTLIST profesor apellido2 CDATA #IMPLIED>
+
+] >
+
+<ListaCursos>
+    <curoso>
+        <estudiante DNI="asdf" nombre="xuan" apellido1="liu">
+            <asignatura nombre="FH" codigo="a123">
+                <profesor NRP="a12398" nombre="Roja" apellido1="Jose" apellido2="Luis"/>
+            </asignatura>
+            
+            <asignatura nombre="FOL" codigo="a123">
+                <profesor NRP="b12398" nombre="Mar" apellido1="Exp" />
+            </asignatura>
+
+        </estudiante>
+
+        
+        <estudiante DNI="hert" nombre="Sable" apellido1="Mar" apellido2="Sandia">
+            <asignatura nombre="FH" codigo="a123">
+                <profesor NRP="a12398" nombre="Roja" apellido1="Jose" apellido2="Luis"/>
+            </asignatura>
+            
+            <asignatura nombre="PAR" codigo="c123">
+                <profesor NRP="c12398" nombre="Manuel" apellido1="a" apellido2="b"/>
+            </asignatura>
+
+        </estudiante>
+
+    </curoso>
+
+    <curoso>
+        <estudiante DNI="zcxnv" nombre="steve" apellido1="alex">
+            <asignatura nombre="IT" codigo="e123">
+                <profesor NRP="a12398" nombre="Roja" apellido1="Jose" apellido2="Luis"/>
+            </asignatura>
+            
+            <asignatura nombre="LM" codigo="d123">
+                <profesor NRP="d12398" nombre="Mar" apellido1="Exp" />
+            </asignatura>
+
+        </estudiante>
+
+    </curoso>
+
+</ListaCursos>

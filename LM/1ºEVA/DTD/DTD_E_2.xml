@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ciclos [
+ <!ELEMENT ciclos (ciclo)>
+ <!ELEMENT ciclo (#PCDATA)>
+]>
+
+<ciclos>
+ <ciclo>
+    Administración de Sistemas Informáticos e Redes
+    Desenvolvemento de Aplicacións Multiplataforma
+    Desenvolvemento de Aplicacións Web
+ </ciclo>
+</ciclos>

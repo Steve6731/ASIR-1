@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE registros [
+  <!ELEMENT registros (reserva)>
+   <!ATTLIST resgistros ano ID #REQUIRED>
+    <!ELEMENT reserva ((informacion)?,cliente)>
+     <!ATTLIST reserva local (Polideportivo|Local_Social) #REQUIRED>
+     <!ATTLIST reserva bonificacion CDATA #IMPLIED>
+     <!ATTLIST reserva mes CDATA #REQUIRED>
+     <!ATTLIST reserva dia CDATA #REQUIRED>
+     <!ATTLIST reserva horario (manana|tarde|dia) "tarde">
+      <!ELEMENT informacion (#PCDATA)>
+      <!ELEMENT cliente (clienteEmpresa|clientePersoal)>
+        <!ELEMENT clienteEmpresa (#PCDATA)>
+        <!ELEMENT clientePersoal (#PCDATA)>
+    
+]>

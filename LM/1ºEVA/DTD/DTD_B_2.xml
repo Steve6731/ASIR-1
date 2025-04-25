@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE Entregas [
+<!ELEMENT Entregas (Entrega*) >
+  <!ELEMENT Entrega (Lote+)>
+    <!ELEMENT Lote (Pate+)>
+        <!ELEMENT Pate (Contenido+)>
+            <!ATTLIST Pate numero_de_cajas CDATA #REQUIRED>
+            <!ATTLIST Pate Peso CDATA #REQUIRED>
+            <!ATTLIST Pate manipulacion CDATA #REQUIRED>
+
+             <!ELEMENT Contenido (procedencia*)>
+              <!ATTLIST Contenido nombre CDATA #REQUIRED>
+              <!ATTLIST Contenido numero_de_serie ID #REQUIRED>
+              <!ATTLIST Contenido Peso CDATA #REQUIRED>
+              <!ATTLIST Contenido unidadePeso CDATA #IMPLIED>
+
+              <!ELEMENT procedencia (#PCDATA)>
+]>
+
+<Entregas>
+    <Entrega>
+        <Lote>
+            <Pate numero_de_cajas="3" Peso="14kg" manipulacion="no se">
+                <Contenido nombre="agua" numero_de_serie="a123" Peso="10" >
+                    <procedencia>China</procedencia>
+                </Contenido>      
+
+                <Contenido nombre="sal" numero_de_serie="a1234" Peso="100" unidadePeso="g">
+                    <procedencia>alemania</procedencia>
+                </Contenido>
+
+            </Pate>
+        </Lote>
+    </Entrega>
+
+</Entregas>

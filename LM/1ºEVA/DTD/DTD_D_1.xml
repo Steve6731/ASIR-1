@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE musica [
+<!ELEMENT musica (musico*,obra*)>
+
+   <!ELEMENT musico (nombre,nacido,(fallecido?))>
+    <!ATTLIST musico id ID #REQUIRED>
+    <!ATTLIST musico pais CDATA #REQUIRED>
+      <!ELEMENT nombre (#PCDATA)>
+      <!ELEMENT nacido (#PCDATA)>
+       <!ATTLIST nacido anio CDATA #REQUIRED>
+      <!ELEMENT fallecido (#PCDATA)>
+
+   <!ELEMENT obra (#PCDATA)>
+    <!ATTLIST obra autor IDREF #REQUIRED>
+    <!ATTLIST obra genero  (oratorio|ópera|concierto|sinfonía) "concierto">
+]>
+
+<musica>
+  <musico id="Vivaldi" pais="Italia">
+    <nombre>Antonio Vivaldi</nombre>
+    <nacido anio="1968" />
+    <fallecido>1741</fallecido>
+  </musico>
+  <musico id="Bach" pais="Alemania">
+    <nombre>Johann Sebastian Bach</nombre>
+    <nacido anio="1685" />
+    <fallecido>1750</fallecido>
+  </musico>
+  <musico id="Mozart" pais="Austria">
+    <nombre>Wolfgang Amadeus Mozart</nombre>
+    <nacido anio="1756" />
+    <fallecido>1791</fallecido>
+  </musico>
+  <musico id="Beethoven" pais="Alemania">
+    <nombre>Ludwig van Beethoven</nombre>
+    <nacido anio="1770" />
+    <fallecido>1827</fallecido>
+  </musico>
+  <musico id="Verdi" pais="Italia">
+    <nombre>Giussepe Verdi</nombre>
+    <nacido anio="1813" />
+  </musico>
+  <obra autor="Vivaldi" genero="concierto">Las cuatro estaciones</obra>
+  <obra autor="Bach" genero="oratorio">Pasión según San Mateo</obra>
+  <obra autor="Mozart" genero="ópera">La flauta mágica</obra>
+  <obra autor="Mozart" genero="concierto">Concierto para piano nº 27</obra>
+  <obra autor="Beethoven" genero="sinfonía">Novena sinfonía</obra>
+  <obra autor="Verdi" genero="ópera">La Traviata</obra>
+  <obra autor="Beethoven" genero="concierto">Concierto para piano nº 5</obra>
+</musica>
