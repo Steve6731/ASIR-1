@@ -1,3 +1,19 @@
+-------------------------LVM-------------------------------
+exoabdur Volume: lvextend /dev/[VG-name]/[LV-name] -L[+]1G
+reduce volume: lvreduce
+show vg: vgs
+show lv: lvs
+show tamaño en FS: df -h
+resize2fs /dev/[VG-name]/[LV-name]
+crea un novo volume(#PV):pvcreate /dev/vdb
+crea un novo volume logico: lvcreate -L 20G -n [LV-name] [VG-name]
+	show lv status: lvscan
+	formateo o VL:mkfs.ext4 -L DATOS /dev/[VG-name]/[LV-name]
+	mount /dev/[VG-name]/[LV-name] /mnt/[carpetName]
+
+--------------------Install aplicacion----------------------
+
+---------------------Gestion Usuarios-----------------------
 /etc/passwd => /etc/shadow
 /etc/group  => /etc/gshadow
 
@@ -30,3 +46,5 @@ tar cf [*.tar.gz] [archivos]
 rdiff-backup backup [orixe/] [backup/] --print-statistics
 rdif-backup list increments [BACKUP/]
 rdiff-backup restore --at [incrementos] BACKUP [backup/]
+
+$(users) | `users`

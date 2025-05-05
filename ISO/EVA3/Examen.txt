@@ -1,0 +1,33 @@
+-- Instalacion De Debian
+	--LVM
+-Instalacion De Aplicaciones
+	/etc/apt/sources.list
+--Instalacion Do Entorno Grafico
+	3 compñentes
+-- Administracion de Usuarios
+	Shadow Passwords
+	Grupos
+	Permisos UGO VS. ACL
+	Sudo
+	Newgrp
+--Systemd
+	systemd-analize blame
+	systemctl enable|disable|status nomeServizo
+	unit files
+	more [servicio]
+
+avahi-daemon.service
+dundee.service
+ofono.service
+wpa-supplicant.service
+connman
+
+ss -lt4n
+
+/etc/fstab (para poner mount cada inicio)
+blkid (para saber UUID)
+dpkg (para saber donde esta algun paquete)
+
+smb:\\tadagast
+
+mount -t [ip]:/... /mnt/...
