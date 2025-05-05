@@ -1,0 +1,70 @@
+--BASIC
+interface range f0/1-12
+switchport access vlan 10
+switchport mode auto|desirable|trunk|access
+
+trunk + access = limited connectivity(resto trunk)
+Desirable + acceess = access(resto trunk)
+auto + auto or access = access(resto trunk)
+
+--etherChannel
+interface range g0/1-2
+channel-group 1 mode on
+interface port-channel 1
+/
+no switchport
+ip address 192.168.1.1 255.255.255.0
+/
+switchport mode trunk
+switchport trunk allowed vlan 10
+no shutdown
+
+ip routing
+
+--VTP
+(server)
+vtp domain cisco
+vtp password cisco
+vtp mode server
+vlan 10
+name datos
+vlan 20
+nane administrado
+(client)
+vtp domain cisco
+vtp password cisco
+vtp mode client
+
+--ROAS
+(switchport)
+interface g0/1
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+(route)
+interface g0/1
+not shutdown
+interface g0/1.10
+encryption dot1Q 10
+ip ad 192.168.10.1 255.255.255.0
+interface g0/1.20
+encryption dot1Q 20
+ip ad 192.168.20.1 255.255.255.0
+ip routing
+
+--SVI
+(switchport)
+interface g0/1
+switchport mode trunk
+switchport trunk allowed vlan 10,20
+(route)
+interface vlan 10
+ip ad 192.168.10.1 255.255.255.0
+interface vlan 20
+ip ad 192.168.20.1 255.255.255.0
+ip routing
+
+# show mac-address-table
+# show cdp neighbors
+# show interface state
+# show vlan
+# show interface trunk# 
