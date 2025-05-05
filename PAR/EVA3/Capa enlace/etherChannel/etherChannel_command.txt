@@ -1,0 +1,12 @@
+interface range g0/1-2
+channel-group 1 mode on
+interface port-channel 1
+/
+no switchport
+ip address 192.168.1.1 255.255.255.0
+/
+switchport mode trunk
+switchport trunk allowed vlan 10
+no shutdown
+
+ip routing
