@@ -1,10 +1,11 @@
 -------------------------LVM-------------------------------
+DISCO DURO PV>VG>LV
 exoabdur Volume: lvextend /dev/[VG-name]/[LV-name] -L[+]1G
 reduce volume: lvreduce
+resize2fs /dev/[VG-name]/[LV-name]
 show vg: vgs
 show lv: lvs
 show tamaño en FS: df -h
-resize2fs /dev/[VG-name]/[LV-name]
 crea un novo volume(#PV):pvcreate /dev/vdb
 crea un novo volume logico: lvcreate -L 20G -n [LV-name] [VG-name]
 	show lv status: lvscan
@@ -12,39 +13,196 @@ crea un novo volume logico: lvcreate -L 20G -n [LV-name] [VG-name]
 	mount /dev/[VG-name]/[LV-name] /mnt/[carpetName]
 
 --------------------Install aplicacion----------------------
+/etc/apt/sources.list
+[tipoPaquete] [urlRepositorio] [versiónDebian] [sección]
+tipoPaquete: deb,deb-src
+urlRepositorio: https://ftp.rediris.es/debian/
+versiónDebian: stable,testing,Ustable,Sid,buster,bookwarm
+sección: main,contrib,non-free,no-free-firmware
+
+apt update
+apt search
+apt show
+apt instal
+apt remove
+apt upgrade
+apt dist-upgrade
+
+instal Backports: pon versionDebian como buster-backports
+apt update => apt -t buster-backports install "paquete"
+
+install codigo fuentes: pon tipoPaquete como deb-src
+apt update => apt source "paquete"
+
+dpkg -i paquete.deb => instal paquete
+dpkg -r paquete.deb => desinstalará ese paquete
+dpkg --search "comman" => a que paquete pertence ese comando
+
+-----------------Install Entorno Grafico--------------------
+sistema base or servidor X: xorg,xwayland
+	gestor de ventanas: wmaker,icem,e17,fluxbos 
+	or entornos de escritorio: lxde,xfce4,mate,gnome,kde
+gestor de login grafico: xdm,wdm,lightdm,gdm3,kdm
+clientex
+
+cambiar gestor de login actual: dpkg-reconfigure xdm
 
 ---------------------Gestion Usuarios-----------------------
-/etc/passwd => /etc/shadow
+/etc/passwd => /etc/shadow (desactiva con: shadowconfig off)
+[nombreDeusuario]: [contraseña]:[uid]:[gid]:[gecos]:[directorio]:[shell]
+--nombreDeUsuario: En minúsculas e sen espacios.
+--Contraseña: encriptada da contrasinal 
+--uid: número enteiro para identificar usuario (root uid: 0)
+--gid: O identificador de grupo principal do usuario. Atópase no /etc/group
+--gecos: Información de usuario: nome real,dirección,teléfono. 
+--directorio: home de usuario
+--shell: Por defecto /bin/bash.
+(usuario software tiene shell: /usr/sbin/nologin)
+
 /etc/group  => /etc/gshadow
+[Grupo]:[contrasinal]:[gid]:[membros]
+--grupo: nombre del grupo
+--contrasianl: necesita este cuando usa: newgrp
+--gid: identificador del grupo
+--membros: lista de nomes de los usuarios
 
-adduser nomeUsuario
-adduser nomeUsuario nomeGroup
-addgroup nomeGroup
-groups
-deluser nomeUsuario
-delgroup
+su - usuarios
+newgrp [nomeGroup] #entra un group temporalmente
+adduser [nomeUsuario] [nomeGroup] #entra un group intemporalmente
 
+adduser [nomeUsuario]
+addgroup [nomeGroup]
+adduser -g [nomeGroup]
+
+deluser [nomeUsuario] --remove-home --remove-all-files
+delgroup [nomeGroup]
+
+groups (amosa grupos de usuario)
 usermod
+	-l [newName] (cambiar nombre de usuario)
+	-p [newPassword] (cambiar password)
+	-g [groupName] (cambiar groupo principal)
+	-G [groupName1],[groupName2] (asugbar grupos secundarios)
 groupmod
+	-n [newName] [groupName] (cambiar nombre)
+	-g [gid] [groupName] (cambiar gid)
+gpasswd
+	[groupName] (permite contrasinal)
+	-r group (quita contrasinal)
+	-a [userName] [groupName] (añade mienbros)
+	-d [userName] [groupName] (Quita mienbros)
+	-A [userName] [groupName] (set Administrador)
+	-M [userName] [groupName] (quita administrador)
 chowner 
 chgrp
+chmod
 passwd
-gpasswd
-newgrp nomeGroup #entra un group temporalmente
 
+--sudo
+apt install sudo
+visudo or nano /etc/sudoers
+formato: usuario/group host = comando
+	ejemplo:
+	usuario ALL= /usr/bin/apt-get
+	%group ALL = /usr/bin/apt-get
+
+--ACL
 setfacl
-getfacl
+	-m group:[groupName]:[permiso] [archivo]
+	-m user:[userName]:[permiso] [archivo]
+	-x user:[userName] [archivo]
+	-R [directorio] (cambiar permiso dentro carpeta)
+	-b [archivo] (borra acl del archivo)
+getfacl [archivo] (amosa ACL)
 
---descomprimir
+-----------------------compresión de archivos------------------
+--busca tipo de paquete
+file [fileName]
+
+--tar
+tar cf [*.tar.gz] [archivos]
+
 tar xf [*.tar.gz]
 tar xzf (gzip)
 tar xjf (bzips)
 tar xJf (xz)
---comprimir
-tar cf [*.tar.gz] [archivos]
+
+--bzip2
+bzip2 [fileName]
+bzip2 -d [fileName]
+bunzip2 [fileName]
+
+--xz (xz-utils)
+xz [fileName]
+xz -d [fileName]
+
+--rar (non-free)
+rar a [fileName]
+unrar x [fileName] 
+
+--zip
+zip [zipName] [fileName] (archivo)
+zip -r [zipName] [fileName] (directorio)
+unzip [fileName]
 
 rdiff-backup backup [orixe/] [backup/] --print-statistics
 rdif-backup list increments [BACKUP/]
 rdiff-backup restore --at [incrementos] BACKUP [backup/]
 
+-------------------------systemd-----------------------------
+systemd-analyze (amosa tiempo empregado en el inicio del sistema)
+systemd-analyze blame (amosa o timepo empregado en cada programa)
+
+--servive
+serveice --status-all
+service [servicio] status
+service [servicio] start
+service [servicio] stop
+
+--systemctl
+systemctl list-units --type=service --state= running
+systemctl status [servicio]
+systemctl start [servicio]
+systemctl stop [servicio]
+systemctl disable [servicio]
+systemctl enable [servicio]
+
+--Unit File
+A súa configuración faixe mediante os unit files. Teremos distintos tipos de 
+units dependendo do recurso a xestionar, por exemplo as units relacionadas 
+con servizos teñen o sufixo .service.
+--Targets
+Os targets son outro tipo de unidades que podemos configurar en Systemd. 
+Os targets agrupan varias unidades e empréganse para definir o estado que 
+debe alcanzar un sistema cando se inicie (servizos que debe executar...)
+
+listar .service: systemctl | grep service
+listar .targets: ls /lib/systemd/system/*.target
+targert default: ls -l /lib/systemd/system/default.target
+
+---------------------------other-------------------------------
+sytemd-analyze (tiempo de inicio del sistema)
+hostnamectl(informacion sobre el equipo)
+timedatectl(informacion sobre a configuracion horaria)
 $(users) | `users`
+
+
+avahi-daemon.service
+dundee.service
+ofono.service
+wpa-supplicant.service
+connman
+
+fdisk -l
+cfdisk
+mkfs.ext4
+blkid (para saber UUID)
+/etc/fstab
+
+smb:\\tadagast
+apt install nfs-kernel-server
+touch /etc/exports
+[directorio] [hostIP]([permiso])
+systemctl restart nfs-kernel-server
+showmount -e [hostIP]
+mount -t [ip]:/... /mnt/...
