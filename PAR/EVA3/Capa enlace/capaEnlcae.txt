@@ -1,3 +1,4 @@
+no ip domain lookup 
 --EtherChannel
 interface range g0/1-2
 channel-group 1 mode on

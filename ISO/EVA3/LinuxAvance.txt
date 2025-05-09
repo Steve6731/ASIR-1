@@ -1,5 +1,5 @@
 -------------------------LVM-------------------------------
-DISCO DURO PV>VG>LV
+DISCO DURO VG>PV>LV
 exoabdur Volume: lvextend /dev/[VG-name]/[LV-name] -L[+]1G
 reduce volume: lvreduce
 resize2fs /dev/[VG-name]/[LV-name]
@@ -202,7 +202,18 @@ blkid (para saber UUID)
 smb:\\tadagast
 apt install nfs-kernel-server
 touch /etc/exports
-[directorio] [hostIP]([permiso])
+[directorio] [ClienteIP]([permiso])
+	ClienteIP: 192.168.0.1 | 192.168.1.0/24 | www.website.com | *
 systemctl restart nfs-kernel-server
-showmount -e [hostIP]
+showmount -e [hostIP] (cliente)
+showmount -a (server)
 mount -t [ip]:/... /mnt/...
+
+para cambiar PATH /etc/environment
+export PATH=$PATH:/ruta
+
+cambiar puerta de ssh
+nano etc/ssh/sshd_config
+	#Port 22
+	Port 2000
+systemctl restart ssh
