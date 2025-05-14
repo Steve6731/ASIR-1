@@ -208,6 +208,8 @@ systemctl restart nfs-kernel-server
 showmount -e [hostIP] (cliente)
 showmount -a (server)
 mount -t [ip]:/... /mnt/...
+en /etc/fstab
+[hostIP]:/serv/nfs /mnt/remota nfs defaufts,nofaif 0 0
 
 para cambiar PATH /etc/environment
 export PATH=$PATH:/ruta
@@ -215,5 +217,5 @@ export PATH=$PATH:/ruta
 cambiar puerta de ssh
 nano etc/ssh/sshd_config
 	#Port 22
-	Port 2000
+	Port 2200
 systemctl restart ssh
