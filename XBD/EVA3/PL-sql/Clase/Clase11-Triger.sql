@@ -38,7 +38,7 @@ begin
    exception when NO_DATA_FOUND then raise_application_error(-20001,'Ciclo no existen');
 end;
 /
-drop trigger checkhora;
+drop trigger DoLogForAsig;
 
 create table TriggerTest (
    id number(8),
@@ -107,3 +107,27 @@ begin
       dbms_output.put_line('no found');
 end;
 /
+
+
+create or replace trigger AnoPorDefecto
+before insert on matricula
+for each row
+begin
+   if :NEW.curso is null then
+      :new.curso := extract(year from sysdate);
+   end if;
+end;
+/
+insert into matricula(codmatr,dni) values(7,12345678);
+select * from matricula;
+delete matricula where dni = 12345678;
+
+
+create or replace trigger LastModificate
+before insert or update on alumno
+for each row
+begin
+   :new.lastModi := sysdate;
+end;
+/
+alter table alumno add column dateUM DATE;

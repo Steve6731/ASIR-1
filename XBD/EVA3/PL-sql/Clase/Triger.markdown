@@ -1,6 +1,6 @@
-___
+__________________
 **Triger 1º tipo**  
-======
+==================
 
 1º tipo trigger que evita que se haga: el evento si se cumple condicion  
 create or replace trigger [name] before|after [Event(insert,update,delet)] on [table] 
@@ -60,9 +60,9 @@ begin
 end;
 /
 ```
-___
-**Triger 2º tipo**  
-======
+__________________
+**Triger 2º tipo**
+==================
 
 Triggers que actualizan datos de otra tabla  
 Nececita que hace la transaccion dentro del trigger. 
@@ -135,3 +135,44 @@ begin
    
 end;
 ```
+__________________
+**Triger 3º tipo**  
+==================
+### **Ejecicio 1**
+```sql
+create or replace trigger AnoPorDefecto
+before insert on matricula
+for each row
+begin
+   if :NEW.curso is null then
+      :new.curso := extract(year from sysdate);
+   end if;
+end;
+/
+```
+
+### **Ejecicio 2**
+```sql
+create or replace trigger LastModificate
+before insert or update on alumno
+for each row
+begin
+   :new.lastModi := sysdate;
+end;
+/
+```
+
+> # Pasos de evento
+> 1. Antes del evento
+> 2. antes de cada fila(for each row)
+> 3. despues de cada fila(for each row)
+> 4. despues de todo
+>
+> before satemant
+>     select a la table y guarda las datos(tabla temporal guarda en paquete)
+> before each row
+>     miro el :new y lo comparo con lo guardado en la tabla
+> 2 opcion
+> for each row 
+>     guardo el .new o el :old
+> after statement seleciona de la tabla y de la tabla global
