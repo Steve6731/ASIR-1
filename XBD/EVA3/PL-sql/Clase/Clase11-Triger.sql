@@ -131,3 +131,63 @@ begin
 end;
 /
 alter table alumno add column dateUM DATE;
+
+create or replace trigger noMasMil
+before insert on asignatura
+for each ROW
+DECLARE
+   v_numhoras number;
+BEGIN
+   select sum(numhoras) into v_horas from asignaturas where codcf = :NEW.codcf;
+   if v_numhoras+:new.numhoras > 1000 then
+      raise_application_error('suma de todas NumHoras no se puede ser mas que 1000');
+   end if;
+end;
+
+/
+create global temporary table asign_news(
+   codasig number,
+   nombre varchar2(32),
+   numhoras number,
+   b char(1),
+   codcf number
+) on commit delete rows;
+
+select * from asign_news;
+
+create or replace trigger noMasMil
+for insert or update of numhoras on asignatura
+compound TRIGGER
+
+BEFORE STATEMENT IS
+BEGIN
+ NULL;
+END BEFORE STATEMENT;
+
+ --Executed before each row change- :NEW, :OLD are available
+BEFORE EACH ROW IS
+BEGIN
+ insert into ASIGN_NEWS values(:NEW.codasig,:NEW.numbre,:new.numhoras,:new:b,:new.codcf);
+END BEFORE EACH ROW;
+
+ --Executed aftereach row change- :NEW, :OLD are available
+AFTER EACH ROW IS
+BEGIN
+ NULL;
+END AFTER EACH ROW;
+
+ --Executed after DML statement
+AFTER STATEMENT IS
+   cursor c_asign_news is select * from asign_news;
+   v_horas number;
+BEGIN
+   for v_news in c_asign_news loop
+      select sum(numhoras) into v_horas from asignatura
+         where codcf = v_news.codcf;
+      if v_horas > 1000 then 
+         raise_application_error(-20002,'suma de todas NumHoras no se puede ser mas que 1000');
+      end if;
+   end loop;
+END AFTER STATEMENT;
+END;
+
