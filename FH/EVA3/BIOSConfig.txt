@@ -1,0 +1,14 @@
+Boot
+/-boot order
+ -secure boot(only UEFI)
+ -usb boot support
+ -boot mode
+   /-legacy(MBR)
+    -UEFI(GPT(tiene particion EFI))
+
+security
+/-Supervisor
+ -user
+
+Advance
+/-

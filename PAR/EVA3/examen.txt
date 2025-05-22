@@ -1,0 +1,8 @@
+vlans
+VTP
+STP
+Seguridad
+   Portfast
+   Port segurity
+   DAI
+HSRP
