@@ -1,0 +1,187 @@
+1. Crea el árbol de nodos correspondiente al archivo libros.xml dado.
+
+   biblioteca
+      @nombre {atribut valor}
+      @ciudad {atribut valor}
+      seccion
+         @nombre {atribut valor}
+         libro
+            @id {atribut valor}
+            titulo (element valor)
+            autores
+               autor
+                  nombre (element valor)
+                  apellido (element valor)
+            editorial(element valor)
+            anio(element valor)
+            idioma (element valor)
+            etiquetas
+               etiqueta(element valor)
+            prestamos
+               prestamo
+                  @usuario{atribut valor}
+                  @fecha{atribut valor}
+                  @devuelto{atribut valor}
+               
+
+2. Resuelve las siguientes consultas de xpath:
+    • Obtener los títulos de todos los libros de la sección "Fantasía"
+   //seccion[./@nombre = "Fantasía"]//titulo
+
+    • Títulos de libros publicados después del año 2000
+   //libro[./anio > 2000]/titulo
+
+    • Títulos de libros escritos en inglés
+   //libro[./idioma = "Inglés"]/titulo
+
+    • Títulos con más de una etiqueta 
+   //libro[count(.//etiqueta) > 1]/titulo
+
+    • Libros que tengan la etiqueta "Magia" o "Fantasía" 
+   //libro[.//etiqueta = "Magia" or .//etiqueta = "Fantasía"]/titulo
+
+    • Títulos con más de una etiqueta y al menos un préstamo registrado
+    //libro[count(.//etiqueta) > 1 and count(.//prestamo) >= 1]/titulo
+
+    • Libros cuyo título tiene más de 10 caracteres  
+    //libro[string-length(./titulo) > 10]
+
+    • Títulos cuyo autor se apellida "Tolkien" 
+   //libro[contains(.//apellido,"Tolkien")]/titulo
+
+    • Títulos con la etiqueta "Aventura"
+   //libro[.//etiqueta = "Aventura"]/titulo
+
+    • Libros escritos en inglés y publicados después del año 2000
+    //libro[./idioma > "Inglés" and ./anio > 2000]/titulo
+
+    • Editoriales de libros en la sección "Ficción"
+    //seccion[./@nombre = "Ficción"]//distinct-values(editorial)
+
+    • Libros cuyo idioma sea español o cuya editorial sea "DAW Books"
+   //libro[./idioma = "español" and ./editroial = "DAW Books"]
+
+    • Usuarios que han prestado libros
+    //@usuario
+
+    • Libros prestados en 2025  
+   //libro[./anio > 2000]
+
+    • Autores cuyo apellido tiene exactamente 6 letras
+    //autor[string_length(./apellido) = 6]/
+
+    • Mostrar el segundo libro de toda la biblioteca 
+    //seccion/libro[position()=2]
+
+    • El segundo libro de la sección "Fantasía"  
+    //seccion[./@nombre="Fantasía"]/libro[position()=2]
+
+
+3. Resuelve las siguientes consultas de xquery:
+    • Listar libros junto a su sección y etiquetas dentro de la etiqueta <informacion>
+
+   <informacion>
+      {
+         for $seccion in //seccion
+            for $libro in $seccion/libro
+            return
+            <libro>
+               {
+                  $libro/titulo,
+                  $libro//etiqueta,
+                  <seccion>{$seccion/@nombre/string()}</seccion>
+               }
+            </libro>
+      }
+   </informacion>
+
+    • Títulos de todos los libros 
+
+   for $titulo in //titulo
+   return $titulo
+
+    • Títulos y autores de todos los libros: 
+   for $libro in //libro
+   return
+   <libro>
+      {
+         $libro/titulo,
+         $libro//autor
+      }
+   </libro>
+
+    • Titulos de los libros publicados después de 2000 y en inglés
+   for $libro in //libro
+   where $libro/anio > 2000
+   and idioma = "Inglés"
+   return $libro/titulo
+
+    • Libros con la etiqueta "Magia" o "Fantasía"
+    for $libro in //libro[.//etiqueta = "Magia" or .//etiqueta = "Fantasía"]
+    return $libro
+
+    • Mostrar títulos con todas sus etiquetas 
+    for $libro in //libro
+    return
+    <libro>{
+      $libro/titulo,
+      $libro//etiqueta
+    }</libro>
+
+    • Titulos escritos por autores cuyo apellido es "Tolkien"
+    for $titulo in //libro[contains(.//apellido,"Tolkien")]/titulo
+    return $titulo
+
+    • Todos los autores sin repetir (solo nombre completo) 
+   for $autor in //distinct-values(autor)
+   return <autor>{$autor}</autor>
+
+    • Libros con préstamos no devueltos
+   for $libro in //libro[.//@devuelto = "false"]
+   return $libro
+
+    • Títulos de libros prestados al menos una vez 
+   for $libro in //libro[count(.//prestamo) > 1]
+   return $libro
+
+    • Usuarios que han hecho préstamos en 2025 
+   for $user in //prestamo[starts-with(./fecha,"2025")]//@usuario/string()
+   return <user>{$user}</user>
+
+    • Crear una etiqueta <resumen> con título y año de cada libro 
+   for $libro in //libro
+   return
+   <resumen>
+      {
+         $libro/titulo,
+         $libro/anio
+      }
+   </resumen>
+
+    • Título y cantidad de etiquetas de cada libro: 
+   for $libro in //libro
+   return
+   <libro>
+      {
+         $libro/titulo,
+         <NumEtique>{
+         $libro/count(.//etiquetas)
+         }</NumEtique>
+      }
+   </libro>
+
+    • Cantidad de libros por sección
+    for $seccion in //seccion
+    return 
+    <seccion>
+    {
+      
+      <nombre>{$seccion/@nombre/string()}</nombre>,
+      <NumLibro>{$seccion/count(./libro)}</NumLibro>
+    }
+    </seccion>
+
+    • Libros de autores cuyo nombre comienza por "G"
+    for $libro in //libro
+    where starts-with($libro//autor/nombre,"G")
+    return $libro
