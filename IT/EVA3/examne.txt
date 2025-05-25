@@ -1,0 +1,83 @@
+picking up a call 接听电话
+later on 后来
+they provide us with 他们为我们提供了
+a set of universal questions 一系列通用问题
+will lead you 将引领你
+claim 宣称
+check 查看
+asked for 要求
+notices the issue 注意到这个问题
+replicated 复现
+grant access 授予访问权限
+
+so that 以便
+however 然而
+In any case 无论如何
+
+would you mind ...? 你会介意的 ...？
+
+could you ...? 您可以...吗 ...？
+
+I would really appreciate it if ...? 如果……我将非常感激？
+
+
+maybe, perhaps 也许，或许
+certainly, definitely 当然，肯定
+supposedly 据称
+
+obviosly 明显地
+likely 可能
+surely 一定
+
+Imperative
+   using infinitive without "to"
+
+From Factor 主机板规格
+Wattage 瓦
+Quelity and Efficiency 质量与效率
+Modula PSU PSU模块
+high-end 高端
+scalability 可扩展性
+power-hungry hardware 耗电硬件
+spec sheet 规格表
+figure out 弄清楚
+power draw 功率消耗
+benchmarks 基准
+headroom 余量
+use case 使用场景
+low-end 低端
+manufacturers 制造商
+will-known brands 知名品牌
+on a daily basis 每天
+
+emphatic Do
+   put on "do" before a verb to add emphasis.
+
+ballpark number 大概数字
+TDP-based 最大负荷热量
+average  平均的
+miss peak or transient power spikes 错过峰值或瞬时功率尖峰
+
+tight budget 预算紧张
+entry-level gaming 入门级游戏
+DIMM slots DIMM 插槽
+upgrading 升级
+stick 戳
+match 匹配
+bulky air CPU coolers 笨重的空气CPU冷却器
+hang over 笼罩
+heat spreaders 散热器
+rule of thumb 经验法则
+sweet spot 最佳点
+Latency 延迟
+bandwidth 带宽
+
+urge 敦促
+verify 核实
+guarantee 保证
+classify 分类
+clarify 阐明
+block 堵塞
+Detect 探测
+Assure 保证
+Carry out 执行

@@ -1,8 +1,175 @@
-vlans
-VTP
-STP
-Seguridad
-   Portfast
-   Port segurity
+密码
+服务设置
+vlan 设置
+--VTP (自动分配Vlan)
+trunk 端口设置
+以太频道
+设置三阶交换机
+--STP (Spanning Tree)
+vlan 路由
+	SVI
+	ROAS
+--Seguridad
+   Port segurity 安全端口
+   Portfast 快速端口
    DAI
-HSRP
+	ACL
+--HSRP
+
+--密码
+	(c)#enable secret [password] (level 5)
+	(c)#enable algorithm-type scrypt secret [password] (level 9)
+	(c)#username [nombre] algor...|secret [password] (creat user)
+	(c)#line [vty 0 15|console 0|...]
+	(line|c)#login local (需要本地的账户登录)
+	(line)#transport output [all|none|ssh|telnet]
+	(line)#exec-timeout 30
+	(c)#ip doamin-name [域名].[com] (ssh可能需要域名)
+
+--服务设置
+--不同步消息
+	(line)#logging synchronous
+--la búsqueda del DNS
+	(c)#no ip domain-lookup
+--cdp service
+	#no cdp run
+	(c)#no cdp enable
+	#show cdp neighbors
+
+--vlan 设置
+	interface range f0/1-12
+	(int)#switchport access vlan 10
+	(int)#switchport mode auto|desirable|trunk|access
+	(c)#ip default-gateway [ip] 给交换机设置网关 
+--VTP (自动分配Vlan)
+	(server)
+	在这里设置vlan
+	(c)#vtp domain cisco
+	(c)#vtp password cisco
+	(c)#vtp mode server
+	(client)
+	(c)#vtp domain cisco
+	(c)#vtp password cisco
+	(c)#vtp mode client
+--trunk 端口设置
+	(int)#switchport mode trunk
+	(int)#switchport trunk allowed vlan 10,20
+	(int)#switchport trunk native vlan 10,20
+
+--以太频道
+	(int)#channel-group 1 mode on
+	(c)#interface port-channel 1
+
+--设置三阶交换机
+	(int)#no switchport
+	(int)#ip address 192.168.1.1 255.255.255.0
+--允许IP路由
+	(c)#ip routing
+
+--STP
+
+--vlan 路由
+--SVI 三阶交换机
+	(route)
+	interface vlan 10
+	ip ad 192.168.10.1 255.255.255.0
+	interface vlan 20
+	ip ad 192.168.20.1 255.255.255.0
+	ip routing
+
+--ROAS
+	(switchport)
+	--开trunk端口到路由器
+	(route)
+	--打开主端口
+		interface g0/1
+		not shutdown
+	--打开子端口 v 10
+		interface g0/1.10
+		encryption dot1Q 10
+		ip ad 192.168.10.1 255.255.255.0
+	--打开子端口 v 20
+		interface g0/1.20
+		encryption dot1Q 20
+		ip ad 192.168.20.1 255.255.255.0
+	允许IP路由
+		ip routing
+
+--安全端口
+show port-security interface [interface]
+Modos de violación de seguridad
+1 Habilitar port-security
+	(int)#switchport port-security
+	(int)#switchport port-security violation [mode]
+2 poner el maximo nº de macs
+	(int)#switchport port-security maximum 10
+	(int)#switchport port-security aging time [num(minutes)]
+3 poner como va a aprender las macs
+	(int)#switchport port-security mac-address sticky
+	(int)#switchport port-security mac-address sticky dirección-mac (conf manual)
+4 Que hacer ante violacia de seguridad
+	(int)#switchport port-security violation {protect | restrict | shutdown}
+5 permite port securo munual
+	(int)#switchport port-security mac-addresss direccion-mac
+
+show port-security [interface]
+show port-security address
+show port-security interf
+show run
+
+--快速端口
+	--在trunk口上强制启用portfast
+	(int)#spanning-tree portfast trunk
+	--启用portfast
+	(int)#spanning-tree portfast
+	--自动全非主道启用
+	(c)#spanning-tree portfast default
+--BPDU Guard
+--注：BPDU：Bridge protocol data units
+	(c)#spanning-tree bpduguard enable	启用BPDU Guard(如果收到BPDU就禁用该端口)
+	(c)#spanning-tree portfast bpduguard default 所有portfast启用BPDU Guard
+	(c)#spanning-tree portfast bpdufilter default 收到BPDU可以将portfast转为普通但BPDU Guard 不变
+
+--DAI (动态ARP检查)  ARP: Address Resolution Protocol
+	(int)#ip arp inspection limit rate 25(packets/second) {burst interval 2(optional,defualt is 1 second)}
+
+--ACL
+	(c)#arp access-list [nombre]
+	(acl)# premit|deny ...
+	(c)access-list [nombre] permit|deny ...
+
+--dhcp Snooping DHCP监控
+show ip dhcp snooping binding
+1 habilitar DHCP snooping
+	(c)#ip dhcp snoping 启用监控
+	(c)#ip dhcp snoping vlan [vlan] 在特定vlan上启用监控
+	(c)#no ip dhcp snoping informacion option 避免relay相关问题
+2 Escoger puertos confiables
+	(int)#ip dhcp snooping trust 认定这一端口可信
+3 limitar velocidad(tasa peticiones)
+	ip dhcp snooping limit rate [nº paquetes/segundo]
+4 recupera los limitados
+	errdisable recovery cause dhcp-rate-limit
+	errdisable recovery cause [causa] 启用想要的模式
+	errdisable reconvery interval [segundo]
+
+--hsrp
+	(activo)
+	(int)#standby version 2
+	(int)#standby [num] ip A.B.C.D
+	(int)#standby [num] priority 150(default 100)
+	(int)#standby [num] preempt
+	(passive)
+	(int)#standby 1 ip A.B.C.D
+show standby
+
+--glbp
+	和HSRP一样把standby改glbp就可以了
+	在activo和passive加个：
+	glbp []num load-balancing round-robin
+
+
+show ip arp inspection interfaces
+--ip arp inspection vlan numero
+--ip arp inspection trust
+--ip arp inspection validate dst-mac src-mac ip
