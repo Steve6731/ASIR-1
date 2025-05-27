@@ -11,4 +11,17 @@ security
  -user
 
 Advance
-/-
+/-Processor Configuration
+  /-Intel Hyper-Threading Technology
+   -Intel(R) SpeedStep Technology
+   -Intel(R) Virtualization Technology
+ -USB Configuration
+ -Onboard Device Configuration
+  /-Onboard Audio Controller
+   -Sata mode
+   -Intel Multi-Display
+   -Onboard LAN Controller (主板上的网卡控制)
+   -Onboard LAN Boot Row (PXE internet boot)
+
+Power
+/Wake up by Integrated LAN/WLAN
