@@ -1,3 +1,29 @@
+create or replace function diferenciaSalario(
+   p_employee_id employees.employee_id%type
+) return number as
+   Job_media number;
+   v_emp employees%rowtype;
+   DiferenSal number;
+   CobraMenos EXCEPTION;
+begin
+   select * into v_emp from employee 
+      where employee_id = p_employee_id;
+   select (min_salary+max_salary)/2 into Job_media from jobs 
+      where job_id = v_emp.job_id;
+
+   DiferenSal := v_emp.salary - Job_media;
+   if DiferenSal < 0 then 
+      raise CobraMenos;
+   else
+      return DiferenSal;
+   end if;
+
+   exception
+      when CobraMenos then raise(-20001,
+      'Empleado ('||v_emp.first_name||' '||v_emp.last_name||
+      ') cobra menos.');
+end;
+/
 create or replace procedure muestraDept as
    cursor c_DEPT is select * from Departamento;
    v_DEPT c_DEPT%rowtype;

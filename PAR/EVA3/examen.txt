@@ -109,7 +109,7 @@ Modos de violación de seguridad
 	(int)#switchport port-security mac-address sticky dirección-mac (conf manual)
 4 Que hacer ante violacia de seguridad
 	(int)#switchport port-security violation {protect | restrict | shutdown}
-5 permite port securo munual
+5 permite address securo munual
 	(int)#switchport port-security mac-addresss direccion-mac
 
 show port-security [interface]
@@ -131,6 +131,8 @@ show run
 	(c)#spanning-tree portfast bpdufilter default 收到BPDU可以将portfast转为普通但BPDU Guard 不变
 
 --DAI (动态ARP检查)  ARP: Address Resolution Protocol
+	(c)#ip arp inspection vlan numero
+	(int)#ip arp inspection trust
 	(int)#ip arp inspection limit rate 25(packets/second) {burst interval 2(optional,defualt is 1 second)}
 
 --ACL
@@ -166,7 +168,7 @@ show standby
 --glbp
 	和HSRP一样把standby改glbp就可以了
 	在activo和passive加个：
-	glbp []num load-balancing round-robin
+	glbp [num] load-balancing round-robin
 
 
 show ip arp inspection interfaces
