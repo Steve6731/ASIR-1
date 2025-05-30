@@ -10,22 +10,63 @@ begin
          'El empleado'||:NEW.first_name||' '||:NEW.last_name||
          'no tiene ningun trabajo previos.');
 end;
+
+
+
 /
-create or replace trigger JobLog
+create or replace trigger JobLogV3
 before update of job_id on employees
 for each row
 declare
    v_start_date job_histroy.start_date%type;
 begin
+   select max(end_date)+1 into v_start_date from job_history where employee_id = :NEW.employee_id;
+   if v_start_date is null then
+      v_start_date := :NEW.hire_date;
+   end if;
+   insert into job_history(employee_id,start_date,end_date,job_id,department_id)
+      values(:old.employee_id,v_start_date,sysdate,:OLD.job_id,:OLD.department_id);
+end;
+/
+create or replace trigger JobLogV2
+before update of job_id on employees
+for each row
+declare
+   v_emp job_history%rowtype;
+   v_start_date job_histroy.start_date%type;
+begin
    begin
-      select max(end_date) into v_start_date from job_history where employee_id = :NEW.employee_id;
+      select * into v_start_date from job_history where employee_id = :NEW.employee_id;
+      select max(end_date)+1 into v_start_date from job_history where employee_id = :NEW.employee_id;
       exception
-         when no_date_found then v_start_date := :NEW.hire_date;
+         when no_data_found then v_start_date := :NEW.hire_date;
+         when too_many_rows then select max(end_date)+1 into v_start_date from job_history where employee_id = :NEW.employee_id;
    end;
    insert into job_history(employee_id,start_date,end_date,job_id,department_id)
       values(:old.employee_id,v_start_date,sysdate,:OLD.job_id,:OLD.department_id);
 end;
 /
+create or replace trigger JobLogV1
+before update of job_id on employees
+for each row
+declare
+   v_start_date job_histroy.start_date%type;
+   conta number;
+begin
+   select count(*) into conta from job_history where employee_id = :NEW.employee_id;
+   if count(*) = 0 then
+      v_start_date := :NEW.hire_date;
+   else
+      select max(end_date)+1 into v_start_date from job_history where employee_id = :NEW.employee_id;
+   end if;
+   insert into job_history(employee_id,start_date,end_date,job_id,department_id)
+      values(:old.employee_id,v_start_date,sysdate,:OLD.job_id,:OLD.department_id);
+end;
+/
+
+
+
+
 create or replace function diferenciaSalario(
    p_employee_id employees.employee_id%type
 ) return number as
@@ -52,12 +93,26 @@ begin
       ') cobra menos.');
 end;
 /
+
 create or replace procedure listEmp(
    id_pais countries.country_id%tyoe
 ) is
    cursor c_dept is Select * from departments 
       where location_id = (Select location_id from locations where country_id = id_pais);
-   cursor c_emp;
+begin
+   for v_dept in c_dept loop
+   dbms_output.put_line('Department: '||department_name||' ('||department_id||')');
+      for v_emp in (Select salary from employees where department_id = v_dept.department_id) loop
+         dbms_output.put_line('    Empleado: '||v_emp.first_name||' '||v_emp.last_name);
+      end loop;
+   end loop;
+end;
+/
+create or replace procedure listEmp(
+   id_pais countries.country_id%tyoe
+) is
+   cursor c_dept is Select * from departments 
+      where location_id = (Select location_id from locations where country_id = id_pais);
 begin
    for v_dept in c_dept loop
    dbms_output.put_line('Department: '||department_name||' ('||department_id||')');
@@ -71,6 +126,24 @@ begin
    end loop;
 end;
 /
+create or replace procedure listEmp(
+   id_pais countries.country_id%tyoe
+) is
+   cursor c_dept is Select * from departments 
+      where location_id = (Select location_id from locations where country_id = id_pais);
+   cursor c_emp(P_dept_id c_dept.department_id%type) is select * from employees where department_id = P_dept_id;
+begin
+   for v_dept in c_dept loop
+   dbms_output.put_line('Department: '||department_name||' ('||department_id||')');
+      for v_emp in c_emp(v_dept.department_id) loop
+         dbms_output.put_line('    Empleado: '||v_emp.first_name||' '||v_emp.last_name);
+      end loop;
+   end loop;
+end;
+/
+
+
+
 create or replace trigger SubaSoldo
 before insert or update of manager_id on departments
 for each row
