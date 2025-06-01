@@ -1,5 +1,7 @@
+--base
 Set serveroutput ON
 
+--procedure
 create or replace procedure [nombre](
    [p_nome] [in|out|in out] [p_type], 
    [p_nome] [in|out|in out] [p_type]
@@ -14,6 +16,7 @@ end;
 /
 execute [procedure];
 
+--funcion
 create or replace funcion [nombre](
    [p_nome] [p_type], 
    [p_nome] [p_type]
@@ -25,7 +28,7 @@ Begin
    return [valor]
 END;
 
-
+--loop
 DECLARE
    [v_name] [v_type] [:=] [value];
 BEGIN
@@ -48,9 +51,11 @@ BEGIN
    end loop;
 END;
 
+--Cursor
 DECLARE
    cursor c_alumno is select nombre from alumno;
    v_alumno c_alumno%rowtype;
+   type TypeName is table of [type] index by binary_integer;
 BEGIN
    open c_alumno;
    LOOP
@@ -61,6 +66,7 @@ BEGIN
    close c_alumno;
 end;
 
+--Procedure
 create or replace procedure mediaC is
    cursor c_tipo[(P1 number)] is select tipo from producto [where cf = P1];
    media number;
@@ -71,6 +77,7 @@ BEGIN
    end loop;
 end;
 
+--Case
 CASE operacion
    when '*' then solucion := numero1*numero2;
    when '/' then solucion := numero1/numero2;
@@ -79,3 +86,65 @@ CASE operacion
    else dbms_output.PUT_LINE('Error operacion no valirable');
          Bandera := False;
 END CASE;
+
+--Exception
+DECLARE
+   UnErro exception;
+   SegErro exception;
+   programa exception_init(SegErro,1400);--1400 es un error definido por oracle
+begin
+   if a > b then
+      raise UnErro;
+   end if;
+exception
+   when Unerro then 
+      raise(-20001,"hay un erro");
+   when SegErro then 
+      dbms_output.put_line("Este es segundo erro");
+   when otro then 
+      dbms_output.put_line("Este es otro");
+end;
+
+--trigger
+create or replace trigger NomeTrigger
+before insert or delete or update
+DECLARE
+
+begin;
+if updateing then
+   null;
+end if;
+
+if deleting then
+   null;
+end if;
+
+if updating then
+   null;
+end if;
+end;
+
+--trigger compuesto
+create or replace trigger NameTrigger
+for insert or delete or update of NameColumna on NameTable
+compound trigger
+before statment is
+begin
+   null;
+end before statement;
+
+before each row is
+begin
+   null;
+end before each row;
+
+after each row is
+begin
+   null;
+end after each row;
+
+after statment is
+begin
+   null;
+end after statment;
+end;
